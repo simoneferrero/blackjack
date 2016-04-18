@@ -49,3 +49,23 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+welcome {
+  color: red;
+  position: absolute;
+  top: 0;
+  @include user-select(none);
+  cursor: default;
+  background-color: blue;
+  width: 100vw;
+  height: 100vh;
+}
+
+#table {
+  background-color: $table;
+  width: 100vw;
+  height: 100vh;
+  // display: none;
+  position: absolute;
+  top: 0;
+}

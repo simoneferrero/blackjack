@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block; }
+
+html {
+  overflow-y: hidden; }
+
+html, body {
+  font-size: 1vw;
+  font-weight: 400;
+  line-height: 1.7vw;
+  min-height: 100%;
+  display: inline-block; }
+
+.clear {
+  display: block; }
+
+.clear::after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 1px;
+  visibility: hidden; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+welcome {
+  color: red;
+  position: absolute;
+  top: 0;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  background-color: blue;
+  width: 100vw;
+  height: 100vh; }
+
+#table {
+  background-color: #256339;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0; }
+
+/*# sourceMappingURL=style.css.map */
