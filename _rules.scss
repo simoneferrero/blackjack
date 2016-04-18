@@ -1,0 +1,67 @@
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+   -moz-box-sizing: $value;
+   -ms-box-sizing: $value;
+   -o-box-sizing: $value;
+   box-sizing: $value;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+   -moz-border-radius: $radius;
+   -ms-border-radius: $radius;
+   -o-border-radius: $radius;
+   border-radius: $radius;
+}
+
+@mixin rotate($angle) {
+  -ms-transform: rotate($angle);
+  -webkit-transform: rotate($angle);
+  -moz-transform: rotate($angle);
+  -o-transform: rotate($angle);
+  transform: rotate($angle);
+}
+
+@mixin user-select($selection) {
+  -webkit-user-select: $selection;
+  -ms-user-select: $selection;
+  -moz-user-select: $selection;
+  -o-user-select: $selection;
+  user-select: $selection;
+}
+
+@mixin scrollbar() {
+  ::-webkit-scrollbar {
+      width:  3%;
+      background-color: $lightest;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $dark;
+  }
+}
+
+@mixin corner() {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  @include border-radius(50%);
+}
+
+$lightest: rgba(245, 180, 138, 1);
+
+$lightest_transparent: rgba(245, 180, 138, 0.9);
+
+$lighter: rgb(240, 143, 90);
+
+$light: rgb(236, 109, 74);
+
+$medium: rgb(220, 63, 84);
+
+$dark: rgb(158, 19, 76);
+
+$darker: rgb(108,26,66);
+
+$darkest: rgb(68, 26, 66);
+
+$titles: 'Cinzel', serif;
