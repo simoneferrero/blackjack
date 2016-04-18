@@ -1,9 +1,10 @@
 var app = angular.module("Blackjack", []);
 
-function Card(name, value, image) {
+function Card(name, value, image, deck) {
   this.name = name;
   this.value = value;
   this.image = image;
+  this.deck = deck;
 }
 
 var data = {
@@ -22,7 +23,8 @@ function shuffle(deck) {
   }
 }
 
-function createBaseDeck() {
+function createBaseDeck(deck) {
+  data["baseDeck"] = [];
   var suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
   var ranks = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
   for (var i = 0; i < suits.length; i++) { //first loop for suits
@@ -30,11 +32,11 @@ function createBaseDeck() {
       var name = ranks[j] + " of " + suits[i];
       var img = name.split(" ").join("").toLowerCase() + ".png";
       if (ranks[j] === "Ace") {
-        var newCard = new Card(name, 1, img);
+        var newCard = new Card(name, 1, img, deck);
       } else if (ranks[j] === "Jack" || ranks[j] === "Queen" || ranks[j] === "King") {
-        var newCard = new Card(name, 10, img);
+        var newCard = new Card(name, 10, img, deck);
       } else {
-        var newCard = new Card(name, ranks[j], img); //creates new card
+        var newCard = new Card(name, ranks[j], img, deck); //creates new card
       }
       data["baseDeck"].push(newCard); //pushes new card in deck
     }
@@ -44,6 +46,7 @@ function createBaseDeck() {
 function createFullDeck() {
   var tempArray = [];
   for (var i = 0; i < 6; i++) {
+    createBaseDeck(i);
     tempArray.push(data["baseDeck"]);
   }
   data["fullDeck"] = [].concat.apply([], tempArray); //merges 6 decks together
@@ -53,10 +56,38 @@ function createFullDeck() {
   }
   var lastIndex = Math.floor(data["fullDeck"].length * 75 / 100);
   var randomIndex = Math.floor(Math.random() * (data["fullDeck"].length - lastIndex)) + lastIndex;
-  data["fullDeck"].splice(randomIndex, 0, data["reshuffleCard"]);
+  data["fullDeck"].splice(randomIndex, 0, data["reshuffleCard"]); //inserts reshuffle card after 75% of the deck
   console.log(data["fullDeck"].length);
   console.log(randomIndex);
 }
 
-createBaseDeck();
 createFullDeck();
+
+var dealer = {
+  cards: [],
+  total: 0
+}
+
+var player = {
+  cards: [],
+  total: 0
+}
+
+function dealCard(receiver) {
+  if (receiver.total <= 21) {
+    var card = data["fullDeck"].shift();
+    console.log(card);
+    receiver["cards"].push(card);
+    receiver["total"] += card.value;
+    if (receiver.total > 21) {
+      console.log("Busted!");
+    }
+  }
+}
+
+function dealToDealer() {
+  if (dealer.total < 17) {
+    dealCard(dealer);
+    dealToDealer();
+  }
+}

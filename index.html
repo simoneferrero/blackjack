@@ -23,6 +23,16 @@
         });
     </script>
     <!-- <welcome ng-controller="WelcomeCtrl"></welcome> -->
-    <div id="table"></div>
+    <div id="table">
+      <div id="dealer" class="cards" ng-controller="Dealer">
+        <div class="card" ng-repeat="card in cards">{{ card.name }}</div>
+        <div class="total">{{ user.total }}</div>
+      </div>
+      <div id="player" class="cards" ng-controller="Player">
+        <div class="card" ng-repeat="card in cards">{{ card.name }}</div>
+        <button ng-click="deal()">Deal!</button><button ng-click="stay()">Stay!</button>
+        <div class="total">{{ user.total }}</div>
+      </div>
+    </div>
   </body>
 </html>

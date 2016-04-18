@@ -8,3 +8,19 @@ app.controller('WelcomeCtrl', ['$scope', function($scope) {
       .fadeIn(1500);
   };
 }]);
+
+app.controller('Dealer', ['$scope', function($scope) {
+  $scope.user = dealer;
+  $scope.cards = $scope["user"].cards;
+}]);
+
+app.controller('Player', ['$scope', function($scope) {
+  $scope.user = player;
+  $scope.cards = $scope["user"].cards;
+  $scope.deal = function() {
+    return dealCard(player);
+  };
+  $scope.stay = function() {
+    return dealToDealer();
+  }
+}]);
