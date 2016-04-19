@@ -65,12 +65,20 @@ createFullDeck();
 
 var dealer = {
   cards: [],
-  total: 0
+  total: 0,
+  emptyCards: function() {
+    this["cards"].length = 0;
+    this["total"] = 0;
+  }
 }
 
 var player = {
   cards: [],
-  total: 0
+  total: 0,
+  emptyCards: function() {
+    this["cards"].length = 0;
+    this["total"] = 0;
+  }
 }
 
 function dealCard(receiver) {
@@ -90,4 +98,9 @@ function dealToDealer() {
     dealCard(dealer);
     dealToDealer();
   }
+}
+
+function cleanTable() {
+  dealer["cards"].splice(0, dealer[cards].length);
+  player["cards"].splice(0, player[cards].length);
 }

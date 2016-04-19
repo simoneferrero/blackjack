@@ -17,10 +17,20 @@ app.controller('Dealer', ['$scope', function($scope) {
 app.controller('Player', ['$scope', function($scope) {
   $scope.user = player;
   $scope.cards = $scope["user"].cards;
-  $scope.deal = function() {
-    return dealCard(player);
-  };
-  $scope.stay = function() {
-    return dealToDealer();
-  }
 }]);
+
+app.controller('Actions', ['$scope', function($scope) {
+  $scope.deal = function() {
+    dealer.emptyCards();
+    player.emptyCards();
+    dealCard(player);
+    dealCard(dealer);
+    dealCard(player);
+  };
+  $scope.hit = function() {
+    dealCard(player);
+  };
+  $scope.stand = function() {
+    dealToDealer();
+  }
+}])
