@@ -10,7 +10,8 @@ function Card(name, value, image, deck) {
 var data = {
   baseDeck: [],
   fullDeck: [],
-  reshuffleCard: new Card("Reshuffle", 0, "reshuffle.png")
+  reshuffleCard: new Card("Reshuffle", 0, "reshuffle.png"),
+  communications: ""
 }
 
 function shuffle(deck) {
@@ -84,23 +85,6 @@ function Component() {
     return this.total;
   };
 }
-
-// function sumTotal(component) {
-//   var cards = component.cards;
-//   component.total = 0;
-//   for (var i = 0; i < cards.length; i++) {
-//     component.total += cards[i].value;
-//   }
-//   if (component.total > 21) {
-//     for (var i = 0; i < cards.length; i++) {
-//       if (cards[i].value === 11 && component.total > 21) {
-//         component.total -= cards[i].value;
-//         cards[i].value = 1;
-//         component.total += cards[i].value;
-//       }
-//     }
-//   }
-// }
 
 var dealer = new Component();
 

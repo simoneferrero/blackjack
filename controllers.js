@@ -31,16 +31,39 @@ app.controller('Actions', ['$scope', function($scope) {
       // buttons[0].status = true;
       // buttons[1].status = false;
       // buttons[2].status = false;
+      data["communications"] = "";
       changeStatus(buttons);
       firstDeal();
+      if (player.total === 21) {
+        data["communications"] = "Blackjack!";
+      }
     } else if (button === "Hit") {
       dealCard(player);
+      if (player.total > 21) {
+        data["communications"] = "Busted! You lose!";
+        changeStatus(buttons);
+      } else {
+        data["communications"] = "";
+      }
     } else if (button === "Stand") {
       dealToDealer();
       // buttons[0].status = false;
       // buttons[1].status = true;
       // buttons[2].status = true;
+      if (dealer.total > 21) {
+        data["communications"] = "Dealer busted! You win!";
+      } else if (player.total > dealer.total || (player.total === 21 && player.total === dealer.total && player["cards"].length === 2 && dealer["cards"].length > 2)) {
+        data["communications"] = "You win!";
+      } else if (dealer.total > player.total || (player.total === 21 && player.total === dealer.total && dealer["cards"].length === 2 && player["cards"].length > 2)){
+        data["communications"] = "You lose!";
+      } else {
+        data["communications"] = "It's a tie!";
+      }
       changeStatus(buttons);
     }
   }
+}])
+
+app.controller('Communications', ['$scope', function($scope) {
+  $scope.data = data;
 }])

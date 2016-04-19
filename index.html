@@ -35,8 +35,9 @@
       <div id="actions" ng-controller="Actions">
         <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status">{{ button.name }}</button>
       </div>
-    </div>
-    <div id="communications">
+      <div id="communications" ng-controller="Communications">
+        <span>{{ data.communications }}</span>
+      </div>
     </div>
   </body>
 </html>
