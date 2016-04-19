@@ -20,17 +20,27 @@ app.controller('Player', ['$scope', function($scope) {
 }]);
 
 app.controller('Actions', ['$scope', function($scope) {
-  $scope.deal = function() {
-    dealer.emptyCards();
-    player.emptyCards();
-    dealCard(player);
-    dealCard(dealer);
-    dealCard(player);
-  };
-  $scope.hit = function() {
-    dealCard(player);
-  };
-  $scope.stand = function() {
-    dealToDealer();
+  $scope.buttons = [
+    {name: "Deal", status: false},
+    {name: "Hit", status: true},
+    {name: "Stand", status: true}
+  ];
+  $scope.actions = function(button) {
+    var buttons = $scope["buttons"];
+    if (button === "Deal") {
+      // buttons[0].status = true;
+      // buttons[1].status = false;
+      // buttons[2].status = false;
+      changeStatus(buttons);
+      firstDeal();
+    } else if (button === "Hit") {
+      dealCard(player);
+    } else if (button === "Stand") {
+      dealToDealer();
+      // buttons[0].status = false;
+      // buttons[1].status = true;
+      // buttons[2].status = true;
+      changeStatus(buttons);
+    }
   }
 }])

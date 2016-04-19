@@ -33,10 +33,10 @@
         <div class="total">{{ user.total }}</div>
       </div>
       <div id="actions" ng-controller="Actions">
-        <button ng-click="deal()">Deal</button>
-        <button ng-click="hit()">Hit</button>
-        <button ng-click="stand()">Stand</button>
+        <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status">{{ button.name }}</button>
       </div>
+    </div>
+    <div id="communications">
     </div>
   </body>
 </html>
