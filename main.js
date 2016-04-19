@@ -32,7 +32,7 @@ function createBaseDeck(deck) {
       var name = ranks[j] + " of " + suits[i];
       var img = name.split(" ").join("").toLowerCase() + ".png";
       if (ranks[j] === "Ace") {
-        var newCard = new Card(name, 1, img, deck);
+        var newCard = new Card(name, 11, img, deck);
       } else if (ranks[j] === "Jack" || ranks[j] === "Queen" || ranks[j] === "King") {
         var newCard = new Card(name, 10, img, deck);
       } else {
@@ -63,22 +63,55 @@ function createFullDeck() {
 
 createFullDeck();
 
-var dealer = {
-  cards: [],
-  total: 0,
+function Component() {
+  this.cards = [];
+  this.total = 0;
+  this.countTot = function() {
+    var cards = this.cards;
+    this.total = 0;
+    for (var i = 0; i < cards.length; i++) {
+      this.total += cards[i].value;
+    }
+    if (this.total > 21) {
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].value === 11 && this.total > 21) { //checks if there are Aces in hand and sum is still higher than 21
+          this.total -= cards[i].value; //removes the value from sum
+          cards[i].value = 1; //changes value of Ace from 11 to 1
+          this.total += cards[i].value; //updates sum with new value
+        }
+      }
+    }
+    return this.total;
+  };
 }
 
-var player = {
-  cards: [],
-  total: 0,
-}
+// function sumTotal(component) {
+//   var cards = component.cards;
+//   component.total = 0;
+//   for (var i = 0; i < cards.length; i++) {
+//     component.total += cards[i].value;
+//   }
+//   if (component.total > 21) {
+//     for (var i = 0; i < cards.length; i++) {
+//       if (cards[i].value === 11 && component.total > 21) {
+//         component.total -= cards[i].value;
+//         cards[i].value = 1;
+//         component.total += cards[i].value;
+//       }
+//     }
+//   }
+// }
+
+var dealer = new Component();
+
+var player = new Component();
 
 function dealCard(receiver) {
   if (receiver.total <= 21) {
     var card = data["fullDeck"].shift();
     console.log(card);
     receiver["cards"].push(card);
-    receiver["total"] += card.value;
+    receiver.countTot();
     if (receiver.total > 21) {
       console.log("Busted!");
     }
