@@ -19,7 +19,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
   display: block; }
 
 html {
-  overflow-y: hidden; }
+  overflow-x: hidden; }
 
 html, body {
   font-size: 1vw;
@@ -52,7 +52,7 @@ welcome {
   -o-user-select: none;
   user-select: none;
   cursor: default;
-  background-color: blue;
+  background-color: #256339;
   width: 100vw;
   height: 100vh; }
 
@@ -60,6 +60,7 @@ welcome {
   background-color: #256339;
   width: 100vw;
   height: 100vh;
+  display: none;
   position: absolute;
   top: 0; }
 

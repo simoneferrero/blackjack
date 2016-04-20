@@ -1,10 +1,12 @@
-app.controller('WelcomeCtrl', ['$scope', function($scope) {
-  $scope.title = 'Blackjack';
+app.controller('WelcomePage', ['$scope', function($scope) {
+  $scope.intro = `<span>Simone's Casino</span> is proud to present`
+  $scope.title = 'SUPER AWESOME BLACKJACK';
   $scope.paragraph = `Welcome to my Blackjack web application!<br />
-    I wish you good luck and... Winner, winner, chicken dinner!`;
+    Choose how much you want to start with and, as always...<br />
+    Winner, winner, chicken dinner!`;
   $scope.goToApp = function() {
     console.log("hello");
-    $("#prova")
+    $("#table")
       .fadeIn(1500);
   };
 }]);

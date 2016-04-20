@@ -16,8 +16,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
 }
 
 html {
-  // overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: hidden;
+  // overflow-y: hidden;
 }
 
 html, body {
@@ -56,7 +56,7 @@ welcome {
   top: 0;
   @include user-select(none);
   cursor: default;
-  background-color: blue;
+  background-color: $table;
   width: 100vw;
   height: 100vh;
 }
@@ -65,7 +65,7 @@ welcome {
   background-color: $table;
   width: 100vw;
   height: 100vh;
-  // display: none;
+  display: none;
   position: absolute;
   top: 0;
 }
