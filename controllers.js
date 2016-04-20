@@ -1,13 +1,13 @@
 app.controller('WelcomePage', ['$scope', function($scope) {
-  $scope.intro = `<span>Simone's Casino</span> is proud to present`
-  $scope.title = 'SUPER AWESOME BLACKJACK';
+  $scope.intro = `<span>Simone's Casino</span><br />is proud to present:`
+  $scope.title = `<span>SUPER</span> <span>AWESOME</span><br /><span><span>B</span><span>L</span><span>A</span><span>C</span><span>K</span><span>J</span><span>A</span><span>C</span><span>K</span>`;
   $scope.paragraph = `Welcome to my Blackjack web application!<br />
     Choose how much you want to start with and, as always...<br />
-    Winner, winner, chicken dinner!`;
+    <span>Winner, winner, chicken dinner!</span>`;
   $scope.goToApp = function() {
     console.log("hello");
     $("#table")
-      .fadeIn(1500);
+      .fadeIn(1000);
   };
 }]);
 

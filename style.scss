@@ -1,4 +1,5 @@
 @import 'rules';
+@import 'chip';
 
 * {
   margin: 0;
@@ -50,21 +51,132 @@ a {
   color: inherit;
 }
 
-welcome {
-  color: red;
+#welcome {
+  color: $gold;
   position: absolute;
   top: 0;
   @include user-select(none);
   cursor: default;
   background-color: $table;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+#title_background {
+  height: 130vh;
+  width: 130vh;
+  margin: 0 auto;
+  @include vertical-align();
+  overflow: hidden;
+  box-shadow: 1vh 1vh $black-shadow;
+}
+// #provauno {
+//   background-color: blue;
+// }
+//
+// #provadue {
+//   background: radial-gradient(circle, transparent 0%, transparent 50%, blue 50%);
+// }
+//
+// #provatre {
+//   background-color: blue;
+// }
+
+#title {
+  height: 100%;
+  width: 100%;
+  @include border-radius(50%);
+  overflow: hidden;
+}
+
+#title > h3 {
+  font-size: 4vh;
+  line-height: 4vh;
+  font-weight: 500;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+  // text-shadow: .25vh .2vw $dark_gold;
+  color: $gold;
+}
+
+#title > h3 span {
+  font-size: 4.5vh;
+  font-weight: 600;
+  color: $light_gold;
+}
+
+#title > h1 {
+  font-size: 7vh;
+  line-height: 8vh;
+  font-weight: 700;
+  margin-top: 8vh;
+  text-shadow: .3vh .5vh $black_shadow;
+}
+
+#title > h1 > span:nth-child(1) {
+  color: $light_grey;
+}
+
+#title > h1 > span:nth-child(2) {
+  color: $light_gold;
+}
+
+#title > h1 > span:nth-child(4){
+  font-size: 10vh;
+  line-height: 10vh;
+}
+
+#title > h1 > span:nth-child(4) span:nth-child(odd) {
+  color: $light_grey;
+}
+
+#title > h1 > span:nth-child(4) span:nth-child(even) {
+  color: $light_gold;
+}
+
+#title > p {
+  font-size: 3vh;
+  line-height: 4vh;
+  font-weight: 400;
+  margin-top: 8vh;
+  color: white;
+}
+
+#title > button {
+  font-size: 5vh;
+  font-weight: 600;
+  line-height: 3vh;
+  margin-top: 3vh;
+  color: $dark_gold;
+  background-color: $light-gold;
+  height: 20vh;
+  width: 20vh;
+  @include border-radius(50%);
+  border: 1vh solid $dark_gold;
+  box-shadow: .5vh 1vh $black_shadow;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+#title > button:hover {
+  margin-top: 1.5vh;
+  height: 23vh;
+  width: 23vh;
+  font-size: 23vh * 5vh / 20vh;
+  border: 1.5vh solid $dark_gold;
 }
 
 #table {
   background-color: $table;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
   display: none;
   position: absolute;
   top: 0;

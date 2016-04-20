@@ -22,7 +22,48 @@
         .ready(function() {
         });
     </script>
-    <welcome ng-controller="WelcomePage"></welcome>
+    <div id="welcome" ng-controller="WelcomePage">
+      <div class="chip" id="title_background">
+        <div class="stripes">
+          <div class="stripe zero_degrees"></div>
+          <div class="stripe thirty_degrees"></div>
+          <div class="stripe sixty_degrees"></div>
+          <div class="stripe ninety_degrees"></div>
+          <div class="stripe onetwenty_degrees"></div>
+          <div class="stripe onefifty_degrees"></div>
+        </div>
+        <div class="outer_shadow">
+        </div>
+        <div class="outer_circle" id="provadue">
+          <div>
+            <div class="cube thirty"></div>
+            <div class="cube ninety"></div>
+            <div class="cube onefifty"></div>
+            <div class="cube twoten"></div>
+            <div class="cube twoseventy"></div>
+            <div class="cube threethirty"></div>
+          </div>
+          <div>
+            <div class="dot zero"></div>
+            <div class="dot sixty"></div>
+            <div class="dot onetwenty"></div>
+            <div class="dot oneeighty"></div>
+            <div class="dot twofourty"></div>
+            <div class="dot three"></div>
+          </div>
+        </div>
+        <div class="inner_shadow">
+        </div>
+        <div class="inner_circle" id="provatre">
+          <div id="title">
+            <h3 ng-bind-html="intro | to_trusted"></h3>
+            <h1 ng-bind-html="title | to_trusted"></h1>
+            <p ng-bind-html="paragraph | to_trusted"></p>
+            <button ng-click="goToApp()">PLAY!</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="table">
       <div id="dealer" class="cards" ng-controller="Dealer">
         <div class="card" ng-repeat="card in cards">{{ card.name }}</div>

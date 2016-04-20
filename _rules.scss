@@ -48,20 +48,36 @@
   @include border-radius(50%);
 }
 
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 $table: #256339;
 
-$lightest_transparent: rgba(245, 180, 138, 0.9);
+$light_gold: rgb(212, 175, 55);
 
-$lighter: rgb(240, 143, 90);
+$gold: rgba(255, 223, 0, 0.5);
 
-$light: rgb(236, 109, 74);
+$medium_gold: rgb(197, 179, 88);
 
-$medium: rgb(220, 63, 84);
+$dark_gold: rgb(153, 101, 21);
 
-$dark: rgb(158, 19, 76);
+$red: rgb(212, 0, 0);
 
-$darker: rgb(108,26,66);
+$chip_red: rgb(193, 12, 14);
 
-$darkest: rgb(68, 26, 66);
+$chip_redder: rgb(167, 10, 12);
+
+$redder: rgba(148, 0, 0, 0.5);
+
+$black: rgb(0, 0, 0);
+
+$light_grey: rgb(245, 245, 245);
+
+$black_shadow: rgba(0, 0, 0, 0.4);
 
 $titles: 'Cinzel', serif;
