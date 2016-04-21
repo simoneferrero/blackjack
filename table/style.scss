@@ -1,0 +1,227 @@
+@import 'rules';
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  @include box-sizing(border-box);
+}
+
+*:after, *:before {
+  @include box-sizing(border-box);
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
+  display: block;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+html, body {
+  font-size: 1vw;
+  font-weight: 400;
+  line-height: 1.7vw;
+  min-height: 100%;
+  display: block;
+  background-color: $table;
+}
+
+body {
+  // font-family: 'Playfair Display', serif;
+  position: relative;
+}
+
+.clear {
+  display: block;
+}
+
+.clear::after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 1px;
+  visibility: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#wrapper {
+  height: 100vh;
+  width: 100vw;
+  min-height: 800px;
+}
+
+#cards_area {
+  width: 100vw;
+  height: 1vh;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -40vh;
+}
+
+.semicircle {
+  position: absolute;
+  left: 50%;
+  margin-left: -80vh;
+  width: 160vh;
+  height: 70vh;
+  border-bottom: .5vh solid white;
+  border-left: .5vh solid transparent;
+  border-right: .5vh solid transparent;
+  @include border-radius(50%);
+}
+
+#upper {
+  top: 0;
+}
+
+#lower {
+  top: 10vh;
+}
+
+#count {
+  top: 15vh;
+}
+
+#sides {
+  position: absolute;
+  top: 55.25vh;
+  left: 50%;
+  margin-left: -65.25vh;
+  width: 130.5vh;
+  height: 10vh;
+  border-left: .5vh solid white;
+  border-right: .5vh solid white;
+}
+
+#players_bets_area {
+  width: 50vh;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 55vh;
+}
+
+.bet {
+  position: absolute;
+  width: 14vh;
+  height: 20vh;
+  border: .5vh solid white;
+  @include border-radius(10%);
+}
+
+#first_player {
+  top: 17.5vh;
+  left: -77%;
+  margin-left: -7vh;
+  @include rotate(26deg);
+}
+
+#second_player {
+  top: 27vh;
+  left: -17%;
+  margin-left: -7vh;
+  @include rotate(10.5deg);
+}
+
+#third_player {
+  top: 30vh;
+  left: 50%;
+  margin-left: -7vh;
+}
+
+#fourth_player {
+  top: 27vh;
+  right: -17%;
+  margin-right: -7vh;
+  @include rotate(-10.5deg);
+}
+
+#fifth_player {
+  top: 17.5vh;
+  right: -77%;
+  margin-right: -7vh;
+  @include rotate(-26deg);
+}
+
+#wood_counter {
+  width: 50vh;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -65vh;
+}
+
+.counter {
+  position: absolute;
+  left: 50%;
+  @include border-radius(50%);
+  border-left: 2vh solid transparent;
+  border-right: 2vh solid transparent;
+}
+
+#border {
+  border-bottom: 2vh solid rgb(37, 21, 11);
+  width: 280vh;
+  height: 140vh;
+  margin-left: -140vh;
+}
+
+#measure {
+  border-bottom: 2vh solid rgb(37, 21, 11);
+  width: 280vh;
+  height: 140vh;
+  margin-left: -140vh;
+  margin-top: 4vh;
+}
+
+#inner {
+  top: -32vh;
+  background: radial-gradient(transparent 0%, transparent 50%, rgb(102, 51, 0) 50%);
+  width: 400vh;
+  height: 200vh;
+  margin-left: -200vh;
+}
+
+.glass_holder {
+  position: absolute;
+  height: 14vh;
+  width: 14vh;
+  @include border-radius(50%);
+  background: rgb(37, 21, 11);
+  border: 1vh solid $gold;
+}
+
+#glass_one {
+  top: 130vh;
+  left: -120%;
+  margin-left: -7vh;
+}
+
+#glass_two {
+  top: 140.8vh;
+  left: -35%;
+  margin-left: -7vh;
+}
+
+#glass_three {
+  top: 144vh;
+  left: 50%;
+  margin-left: -7vh;
+}
+
+#glass_four {
+  top: 140.8vh;
+  right: -35%;
+  margin-right: -7vh;
+}
+
+#glass_five {
+  top: 130vh;
+  right: -120%;
+  margin-right: -7vh;
+}

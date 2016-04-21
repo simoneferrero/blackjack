@@ -405,10 +405,13 @@ a {
   margin-top: 50px; }
 
 .card {
-  background-color: white;
-  width: 130px;
-  height: 180px;
+  width: auto;
+  height: 20vh;
   display: inline-block; }
+
+.card img {
+  height: 100%;
+  width: auto; }
 
 .total {
   font-size: 3em;

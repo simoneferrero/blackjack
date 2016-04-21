@@ -10,7 +10,8 @@ function Card(name, value, image, deck) {
 var data = {
   baseDeck: [],
   fullDeck: [],
-  reshuffleCard: new Card("Reshuffle", 0, "reshuffle.png"),
+  reshuffleCard: new Card("Reshuffle", 0, "cards/reshuffle.png"),
+  back: new Card("Back", 0, "cards/back.png"),
   communications: ""
 }
 
@@ -31,7 +32,7 @@ function createBaseDeck(deck) {
   for (var i = 0; i < suits.length; i++) { //first loop for suits
     for (var j = 0; j < ranks.length; j++) { //second loop for ranks
       var name = ranks[j] + " of " + suits[i];
-      var img = name.split(" ").join("").toLowerCase() + ".png";
+      var img = "cards/" + name.split(" ").join("").toLowerCase() + ".png";
       if (ranks[j] === "Ace") {
         var newCard = new Card(name, 11, img, deck);
       } else if (ranks[j] === "Jack" || ranks[j] === "Queen" || ranks[j] === "King") {
