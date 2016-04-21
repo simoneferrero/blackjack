@@ -381,16 +381,15 @@ a {
   -o-border-radius: 50%;
   border-radius: 50%;
   border: 1vh solid #996515;
-  box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  transition: 0.3s linear; }
+  transition: .2s linear; }
 
 #title > button:hover {
   margin-top: 1.5vh;
   height: 23vh;
   width: 23vh;
   font-size: 5.75vh;
-  border: 1.5vh solid #996515; }
+  box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4); }
 
 #table {
   background-color: #256339;

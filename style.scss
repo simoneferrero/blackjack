@@ -167,9 +167,8 @@ a {
   width: 20vh;
   @include border-radius(50%);
   border: 1vh solid $dark_gold;
-  box-shadow: .5vh 1vh $black_shadow;
   cursor: pointer;
-  transition: 0.3s linear;
+  transition: .2s linear;
 }
 
 #title > button:hover {
@@ -177,7 +176,7 @@ a {
   height: 23vh;
   width: 23vh;
   font-size: 23vh * 5vh / 20vh;
-  border: 1.5vh solid $dark_gold;
+  box-shadow: .5vh 1vh $black_shadow;
 }
 
 #table {
