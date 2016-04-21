@@ -1,64 +1,47 @@
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box; }
+.red {
+  background: #a70a0c; }
 
-*:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box; }
+.light_grey {
+  background-color: whitesmoke; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
-  display: block; }
+.red_outline {
+  border: #a70a0c solid 0.1%; }
 
-html {
-  overflow-x: hidden; }
+.red_outer {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, #c10c0e 50%); }
 
-html, body {
-  font-size: 1vw;
-  font-weight: 400;
-  line-height: 1.7vw;
-  min-height: 100%;
-  display: inline-block; }
-
-.clear {
-  display: block; }
-
-.clear::after {
-  clear: both;
-  content: ".";
-  display: block;
-  height: 1px;
-  visibility: hidden; }
-
-a {
-  text-decoration: none;
-  color: inherit; }
+.red_inner {
+  background: #c10c0e; }
 
 .chip {
-  background: #a70a0c;
-  height: 100vh;
-  width: 100vh;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
   position: relative;
-  left: 50%;
   overflow: hidden; }
+
+.splash_page {
+  height: 100vh;
+  width: 100vh; }
+
+.stripes {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute; }
 
 .stripe {
   width: 8%;
   height: 100%;
-  background-color: whitesmoke;
   position: absolute;
   left: 50%;
   margin-left: -4%; }
@@ -116,7 +99,6 @@ a {
   top: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, transparent 0%, transparent 50%, #c10c0e 50%);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -132,8 +114,7 @@ a {
   -moz-border-radius: 10%;
   -ms-border-radius: 10%;
   -o-border-radius: 10%;
-  border-radius: 10%;
-  border: rgba(148, 0, 0, 0.5) solid 0.1%; }
+  border-radius: 10%; }
 
 .thirty {
   -ms-transform: rotate(30deg);
@@ -199,8 +180,7 @@ a {
   border-radius: 50%;
   height: 5%;
   width: 5%;
-  background-color: whitesmoke;
-  border: rgba(148, 0, 0, 0.5) solid 0.1%; }
+  background-color: whitesmoke; }
 
 .zero {
   margin-top: 4%;
@@ -252,7 +232,6 @@ a {
 
 .inner_circle {
   position: absolute;
-  background: #c10c0e;
   height: 67.5%;
   width: 67.5%;
   top: 16.25%;

@@ -75,17 +75,26 @@ a {
   overflow: hidden;
   box-shadow: 1vh 1vh $black-shadow;
 }
-// #provauno {
-//   background-color: blue;
-// }
-//
-// #provadue {
-//   background: radial-gradient(circle, transparent 0%, transparent 50%, blue 50%);
-// }
-//
-// #provatre {
-//   background-color: blue;
-// }
+
+.red {
+  background: $chip_redder;
+}
+
+.light_grey {
+  background-color: $light_grey;
+}
+
+.red_outline {
+  border: $chip_redder solid .1%;
+}
+
+.red_outer {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_red 50%);
+}
+
+.red_inner {
+  background: $chip_red;
+}
 
 #title {
   height: 100%;

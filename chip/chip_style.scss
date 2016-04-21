@@ -1,69 +1,49 @@
-@import 'rules';
+@import 'colours';
 
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  @include box-sizing(border-box);
+.red {
+  background: $chip_redder;
 }
 
-*:after, *:before {
-  @include box-sizing(border-box);
+.light_grey {
+  background-color: $light_grey;
 }
 
-article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
-  display: block;
+.red_outline {
+  border: $chip_redder solid .1%;
 }
 
-html {
-  overflow-x: hidden;
-  // overflow-y: hidden;
+.red_outer {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_red 50%);
 }
 
-html, body {
-  font-size: 1vw;
-  font-weight: 400;
-  line-height: 1.7vw;
-  min-height: 100%;
-  display: inline-block;
-  // color: $dark;
-  // background-color: $dark;
-}
-
-body {
-  // font-family: 'Playfair Display', serif;
-}
-
-.clear {
-  display: block;
-}
-
-.clear::after {
-  clear: both;content: ".";
-  display: block;
-  height: 1px;
-  visibility: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
+.red_inner {
+  background: $chip_red;
 }
 
 .chip {
-  background: $chip_redder;
-  height: 100vh;
-  width: 100vh;
   @include border-radius(50%);
   position: relative;
-  left: 50%;
   overflow: hidden;
+}
+
+.splash_page {
+  height: 100vh;
+  width: 100vh;
+}
+
+.stripes {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  @include border-radius(50%);
+  overflow: hidden;
+  position: absolute;
 }
 
 .stripe {
   width: 8%;
   height: 100%;
-  background-color: $light_grey;
   position: absolute;
   left: 50%;
   margin-left: -4%;
@@ -104,7 +84,6 @@ a {
   top: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_red 50%);
   @include border-radius(50%);
 }
 
@@ -114,7 +93,6 @@ a {
   width: 15%;
   height: 15%;
   @include border-radius(10%);
-  border: $redder solid .1%;
 }
 
 .thirty {
@@ -168,7 +146,6 @@ a {
   height: 5%;
   width: 5%;
   background-color: rgb(245, 245, 245);
-  border: $redder solid .1%;
 }
 
 .zero {
@@ -224,7 +201,6 @@ a {
 
 .inner_circle {
   position: absolute;
-  background: $chip_red;
   height: 67.5%;
   width: 67.5%;
   top: (100% - 67.5%) / 2;

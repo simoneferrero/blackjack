@@ -1,10 +1,10 @@
 .chip {
-  background: #a70a0c;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
+  position: relative;
   overflow: hidden; }
 
 .stripes {
@@ -23,7 +23,6 @@
 .stripe {
   width: 8%;
   height: 100%;
-  background-color: whitesmoke;
   position: absolute;
   left: 50%;
   margin-left: -4%; }
@@ -69,20 +68,18 @@
   left: .5%;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, transparent 0%, transparent 50%, black 50%);
+  background: radial-gradient(circle, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.4) 50%);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  border-radius: 50%;
-  opacity: .4; }
+  border-radius: 50%; }
 
 .outer_circle {
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, transparent 0%, transparent 50%, #c10c0e 50%);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -203,7 +200,7 @@
 
 .inner_shadow {
   position: absolute;
-  background: black;
+  background: rgba(0, 0, 0, 0.4);
   height: 67.5%;
   width: 67.5%;
   top: 17.25%;
@@ -212,12 +209,10 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  border-radius: 50%;
-  opacity: .4; }
+  border-radius: 50%; }
 
 .inner_circle {
   position: absolute;
-  background: #c10c0e;
   height: 67.5%;
   width: 67.5%;
   top: 16.25%;
@@ -302,6 +297,21 @@ a {
   transform: translateY(-50%);
   overflow: hidden;
   box-shadow: 1vh 1vh rgba(0, 0, 0, 0.4); }
+
+.red {
+  background: #a70a0c; }
+
+.light_grey {
+  background-color: whitesmoke; }
+
+.red_outline {
+  border: #a70a0c solid 0.1%; }
+
+.red_outer {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, #c10c0e 50%); }
+
+.red_inner {
+  background: #c10c0e; }
 
 #title {
   height: 100%;
