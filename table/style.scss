@@ -26,7 +26,7 @@ html, body {
   line-height: 1.7vw;
   min-height: 100%;
   display: block;
-  background-color: $table;
+  background-color: RGB(80, 0, 0);
 }
 
 body {
@@ -52,176 +52,214 @@ a {
 }
 
 #wrapper {
-  height: 100vh;
-  width: 100vw;
-  min-height: 800px;
-}
-
-#cards_area {
-  width: 100vw;
-  height: 1vh;
   position: relative;
-  margin: 0 auto;
-  margin-top: -40vh;
-}
-
-.semicircle {
-  position: absolute;
-  left: 50%;
-  margin-left: -80vh;
-  width: 160vh;
-  height: 70vh;
-  border-bottom: .5vh solid white;
-  border-left: .5vh solid transparent;
-  border-right: .5vh solid transparent;
-  @include border-radius(50%);
-}
-
-#upper {
-  top: 0;
-}
-
-#lower {
-  top: 10vh;
-}
-
-#count {
-  top: 15vh;
-}
-
-#sides {
-  position: absolute;
-  top: 55.25vh;
-  left: 50%;
-  margin-left: -65.25vh;
-  width: 130.5vh;
-  height: 10vh;
-  border-left: .5vh solid white;
-  border-right: .5vh solid white;
-}
-
-#players_bets_area {
   width: 50vh;
-  position: relative;
+  height: 50vh;
   margin: 0 auto;
-  margin-top: 55vh;
+}
+
+$wood: rgb(102, 51, 0);
+$dark_wood: rgb(37, 21, 11);
+$table_width: 220vh;
+$table_dealer_area_height: $table_width * 0.05;
+$inner_table_width: $table_width * 0.83;
+$rapport: 0.5;
+$glass_container_width: $inner_table_width * 0.25;
+$bet_container_width: $inner_table_width * 0.2;
+$glass_width: $table_width * 0.06;
+$cards_area_width: $table_width * 0.45;
+$bet_height: $table_width * 0.08;
+// $glass_base_top: ($inner_table_width + 0.125 * $inner_table_width) * $rapport;
+
+@mixin semicircle($width) {
+  left: 50%;
+  margin-left: -($width / 2);
+  height: $width * $rapport;
+  width: $width;
+  @include border-radius(0 0 $width $width);
+}
+
+@mixin skew($angle) {
+  -ms-transform: skew($angle);
+  -webkit-transform: skew($angle);
+  -moz-transform: skew($angle);
+  -o-transform: skew($angle);
+  transform: skew($angle);
+}
+
+@mixin rotateSkew($angleOne, $angleTwo) {
+  -ms-transform: rotate($angleOne) skew($angleTwo);
+  -webkit-transform: rotate($angleOne) skew($angleTwo);
+  -moz-transform: rotate($angleOne) skew($angleTwo);
+  -o-transform: rotate($angleOne) skew($angleTwo);
+  transform: rotate($angleOne) skew($angleTwo);
+}
+
+
+.table_dealer_area {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: $table_dealer_area_height + 1vh;
+}
+
+#table_dealer_area_border {
+  width: $table_width;
+  background-color: $wood;
+  margin-left: -($table_width / 2);
+  border-left: ($inner_table_width * 0.005) solid $dark_wood;
+  border-right: ($inner_table_width * 0.005) solid $dark_wood;
+}
+
+#table_dealer_area_inner {
+  width: $inner_table_width;
+  background-color: $table;
+  margin-left: -($inner_table_width / 2);
+  border-left: ($inner_table_width * 0.005) solid $dark_wood;
+  border-right: ($inner_table_width * 0.005) solid $dark_wood;
+}
+
+.table_shape {
+  position: absolute;
+}
+
+#table_border {
+  @include semicircle($table_width);
+  background-color: $wood;
+  top: $table_dealer_area_height;
+  border-left: ($inner_table_width * 0.005) solid $dark_wood;
+  border-right: ($inner_table_width * 0.005) solid $dark_wood;
+  border-bottom: ($inner_table_width * 0.005) solid $dark_wood;
+}
+
+#table_inner {
+  @include semicircle($inner_table_width);
+  background-color: $table;
+  border-bottom: ($inner_table_width * 0.005) solid $dark_wood;
+  border-left: ($inner_table_width * 0.005) solid $dark_wood;
+  border-right: ($inner_table_width * 0.005) solid $dark_wood;
+  top: $table_dealer_area_height;
+}
+
+.glass_container {
+  width: $glass_container_width;
+  height: $glass_container_width;
+  position: absolute;
+  left: 50%;
+  transform-origin: 100% 100%;
+  margin-left: -($glass_container_width);
+  top: -($glass_container_width);
+}
+
+$rotate_angle: 175.2deg;
+$add_angle: 36deg;
+$skew_angle: 54deg;
+
+#glass_zero {
+  @include rotateSkew($rotate_angle, $skew_angle);
+}
+
+#glass_one {
+  @include rotateSkew(($rotate_angle + $add_angle), $skew_angle);
+}
+
+#glass_two {
+  @include rotateSkew(($rotate_angle + $add_angle * 2), $skew_angle);
+}
+
+#glass_three {
+  @include rotateSkew(($rotate_angle + $add_angle * 3), $skew_angle);
+}
+
+#glass_four {
+  @include rotateSkew(($rotate_angle + $add_angle * 4), $skew_angle);
+}
+
+.glass {
+  position: absolute;
+  @include border-radius(50%);
+  @include skew(-($skew_angle));
+  width: $glass_width;
+  height: $glass_width;
+  background-color: $dark_wood;
+  border: ($glass_width * 0.08) solid $light_gold;
+}
+
+.cards_area {
+  position: absolute;
+  border-bottom: ($cards_area_width * 0.005) solid white;
+  border-left: ($cards_area_width * 0.005) solid white;
+  border-right: ($cards_area_width * 0.005) solid white;
+  top: $table_dealer_area_height / 2;
+}
+
+#cards_lower {
+  @include semicircle($cards_area_width);
+}
+
+$cards_upper_width: $cards_area_width - ($cards_area_width * 0.2);
+
+#cards_upper {
+  @include semicircle($cards_upper_width);
+}
+
+.cards_area_close {
+  position: absolute;
+  top: $table_dealer_area_height * 0.04;
+  height: $table_dealer_area_height / 2;
+  width: $cards_area_width * 0.1;
+  border-bottom: ($cards_area_width * 0.005) solid white;
+}
+
+#cards_left {
+  left: 50%;
+  margin-left: -($cards_area_width)/2;
+}
+
+#cards_right {
+  right: 50%;
+  margin-right: -($cards_area_width)/2;
+}
+
+#bet_zero {
+  @include rotate(-69deg);
+  right: 50%;
+  margin-right: -($bet_height * 3.71);
+  margin-top: $bet_height * 0.79;
+}
+
+#bet_one {
+  @include rotate(-34.3deg);
+  right: 50%;
+  margin-right: -($bet_height * 2.378);
+  margin-top: $bet_height * 2.475;
+}
+
+#bet_two {
+  left: 50%;
+  margin-left: -($bet_height * 0.7 / 2);
+  margin-top: $cards_area_width / 2 + ($cards_area_width * 0.05);
+}
+
+#bet_three {
+  @include rotate(34.3deg);
+  left: 50%;
+  margin-left: -($bet_height * 2.378);
+  margin-top: $bet_height * 2.47;
+}
+
+#bet_four {
+  @include rotate(69.2deg);
+  left: 50%;
+  margin-left: -($bet_height * 3.71);
+  margin-top: $bet_height * 0.78;
 }
 
 .bet {
   position: absolute;
-  width: 14vh;
-  height: 20vh;
+  top: $table_dealer_area_height / 2;
+  width: $bet_height * 0.7;
+  height: $bet_height;
   border: .5vh solid white;
   @include border-radius(10%);
-}
-
-#first_player {
-  top: 17.5vh;
-  left: -77%;
-  margin-left: -7vh;
-  @include rotate(26deg);
-}
-
-#second_player {
-  top: 27vh;
-  left: -17%;
-  margin-left: -7vh;
-  @include rotate(10.5deg);
-}
-
-#third_player {
-  top: 30vh;
-  left: 50%;
-  margin-left: -7vh;
-}
-
-#fourth_player {
-  top: 27vh;
-  right: -17%;
-  margin-right: -7vh;
-  @include rotate(-10.5deg);
-}
-
-#fifth_player {
-  top: 17.5vh;
-  right: -77%;
-  margin-right: -7vh;
-  @include rotate(-26deg);
-}
-
-#wood_counter {
-  width: 50vh;
-  position: relative;
-  margin: 0 auto;
-  margin-top: -65vh;
-}
-
-.counter {
-  position: absolute;
-  left: 50%;
-  @include border-radius(50%);
-  border-left: 2vh solid transparent;
-  border-right: 2vh solid transparent;
-}
-
-#border {
-  border-bottom: 2vh solid rgb(37, 21, 11);
-  width: 280vh;
-  height: 140vh;
-  margin-left: -140vh;
-}
-
-#measure {
-  border-bottom: 2vh solid rgb(37, 21, 11);
-  width: 280vh;
-  height: 140vh;
-  margin-left: -140vh;
-  margin-top: 4vh;
-}
-
-#inner {
-  top: -32vh;
-  background: radial-gradient(transparent 0%, transparent 50%, rgb(102, 51, 0) 50%);
-  width: 400vh;
-  height: 200vh;
-  margin-left: -200vh;
-}
-
-.glass_holder {
-  position: absolute;
-  height: 14vh;
-  width: 14vh;
-  @include border-radius(50%);
-  background: rgb(37, 21, 11);
-  border: 1vh solid $gold;
-}
-
-#glass_one {
-  top: 130vh;
-  left: -120%;
-  margin-left: -7vh;
-}
-
-#glass_two {
-  top: 140.8vh;
-  left: -35%;
-  margin-left: -7vh;
-}
-
-#glass_three {
-  top: 144vh;
-  left: 50%;
-  margin-left: -7vh;
-}
-
-#glass_four {
-  top: 140.8vh;
-  right: -35%;
-  margin-right: -7vh;
-}
-
-#glass_five {
-  top: 130vh;
-  right: -120%;
-  margin-right: -7vh;
 }

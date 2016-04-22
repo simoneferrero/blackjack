@@ -10,32 +10,31 @@
   </head>
   <body>
     <div id="wrapper">
-      <div id="dealer_total"></div>
-      <div>
-        <div id="cards_area">
-          <div id="upper" class="semicircle"></div>
-          <div id="sides"></div>
-          <div id="lower" class="semicircle"></div>
-          <!-- <div id="count" class="semicircle"></div> -->
-        </div>
-        <div id="players_bets_area">
-          <div class="bet" id="first_player"></div>
-          <div class="bet" id="second_player"></div>
-          <div class="bet" id="third_player"></div>
-          <div class="bet" id="fourth_player"></div>
-          <div class="bet" id="fifth_player"></div>
-        </div>
+      <div id="table_dealer_area_border" class="table_dealer_area"></div>
+      <div id="table_dealer_area_inner" class="table_dealer_area"></div>
+      <div id="table_border" class="table_shape">
+        <div class="glass_container" id="glass_zero"><div class="glass"></div></div>
+        <div class="glass_container" id="glass_one"><div class="glass"></div></div>
+        <div class="glass_container" id="glass_two"><div class="glass"></div></div>
+        <div class="glass_container" id="glass_three"><div class="glass"></div></div>
+        <div class="glass_container" id="glass_four"><div class="glass"></div></div>
       </div>
-      <div id="wood_counter">
-        <div class="counter inner" id="inner"></div>
-        <div class="counter" id="border"></div>
-        <!-- <div class="counter" id="measure"></div> -->
-        <div class="glass_holder" id="glass_one"></div>
-        <div class="glass_holder" id="glass_two"></div>
-        <div class="glass_holder" id="glass_three"></div>
-        <div class="glass_holder" id="glass_four"></div>
-        <div class="glass_holder" id="glass_five"></div>
+      <div id="table_inner" class="table_shape">
       </div>
+      <div id="cards_area">
+        <div id="cards_lower" class="cards_area"></div>
+        <div id="cards_upper" class="cards_area"></div>
+        <div id="cards_left" class="cards_area_close"></div>
+        <div id="cards_right" class="cards_area_close"></div>
+      </div>
+      <div id="bets_area">
+        <div class="bet" id="bet_zero"></div>
+        <div class="bet" id="bet_one"></div>
+        <div class="bet" id="bet_two"></div>
+        <div class="bet" id="bet_three"></div>
+        <div class="bet" id="bet_four"></div>
+      </div>
+    </div>
     </div>
   </body>
 </html>

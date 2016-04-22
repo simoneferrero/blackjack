@@ -28,7 +28,7 @@ html, body {
   line-height: 1.7vw;
   min-height: 100%;
   display: block;
-  background-color: #256339; }
+  background-color: RGB(80, 0, 0); }
 
 body {
   position: relative; }
@@ -48,185 +48,226 @@ a {
   color: inherit; }
 
 #wrapper {
-  height: 100vh;
-  width: 100vw;
-  min-height: 800px; }
-
-#cards_area {
-  width: 100vw;
-  height: 1vh;
   position: relative;
-  margin: 0 auto;
-  margin-top: -40vh; }
+  width: 50vh;
+  height: 50vh;
+  margin: 0 auto; }
 
-.semicircle {
+.table_dealer_area {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 12vh; }
+
+#table_dealer_area_border {
+  width: 220vh;
+  background-color: #663300;
+  margin-left: -110vh;
+  border-left: 0.913vh solid #25150b;
+  border-right: 0.913vh solid #25150b; }
+
+#table_dealer_area_inner {
+  width: 182.6vh;
+  background-color: #256339;
+  margin-left: -91.3vh;
+  border-left: 0.913vh solid #25150b;
+  border-right: 0.913vh solid #25150b; }
+
+.table_shape {
+  position: absolute; }
+
+#table_border {
+  left: 50%;
+  margin-left: -110vh;
+  height: 110vh;
+  width: 220vh;
+  -webkit-border-radius: 0 0 220vh 220vh;
+  -moz-border-radius: 0 0 220vh 220vh;
+  -ms-border-radius: 0 0 220vh 220vh;
+  -o-border-radius: 0 0 220vh 220vh;
+  border-radius: 0 0 220vh 220vh;
+  background-color: #663300;
+  top: 11vh;
+  border-left: 0.913vh solid #25150b;
+  border-right: 0.913vh solid #25150b;
+  border-bottom: 0.913vh solid #25150b; }
+
+#table_inner {
+  left: 50%;
+  margin-left: -91.3vh;
+  height: 91.3vh;
+  width: 182.6vh;
+  -webkit-border-radius: 0 0 182.6vh 182.6vh;
+  -moz-border-radius: 0 0 182.6vh 182.6vh;
+  -ms-border-radius: 0 0 182.6vh 182.6vh;
+  -o-border-radius: 0 0 182.6vh 182.6vh;
+  border-radius: 0 0 182.6vh 182.6vh;
+  background-color: #256339;
+  border-bottom: 0.913vh solid #25150b;
+  border-left: 0.913vh solid #25150b;
+  border-right: 0.913vh solid #25150b;
+  top: 11vh; }
+
+.glass_container {
+  width: 45.65vh;
+  height: 45.65vh;
   position: absolute;
   left: 50%;
-  margin-left: -80vh;
-  width: 160vh;
-  height: 70vh;
-  border-bottom: .5vh solid white;
-  border-left: .5vh solid transparent;
-  border-right: .5vh solid transparent;
+  transform-origin: 100% 100%;
+  margin-left: -45.65vh;
+  top: -45.65vh; }
+
+#glass_zero {
+  -ms-transform: rotate(175.2deg) skew(54deg);
+  -webkit-transform: rotate(175.2deg) skew(54deg);
+  -moz-transform: rotate(175.2deg) skew(54deg);
+  -o-transform: rotate(175.2deg) skew(54deg);
+  transform: rotate(175.2deg) skew(54deg); }
+
+#glass_one {
+  -ms-transform: rotate(211.2deg) skew(54deg);
+  -webkit-transform: rotate(211.2deg) skew(54deg);
+  -moz-transform: rotate(211.2deg) skew(54deg);
+  -o-transform: rotate(211.2deg) skew(54deg);
+  transform: rotate(211.2deg) skew(54deg); }
+
+#glass_two {
+  -ms-transform: rotate(247.2deg) skew(54deg);
+  -webkit-transform: rotate(247.2deg) skew(54deg);
+  -moz-transform: rotate(247.2deg) skew(54deg);
+  -o-transform: rotate(247.2deg) skew(54deg);
+  transform: rotate(247.2deg) skew(54deg); }
+
+#glass_three {
+  -ms-transform: rotate(283.2deg) skew(54deg);
+  -webkit-transform: rotate(283.2deg) skew(54deg);
+  -moz-transform: rotate(283.2deg) skew(54deg);
+  -o-transform: rotate(283.2deg) skew(54deg);
+  transform: rotate(283.2deg) skew(54deg); }
+
+#glass_four {
+  -ms-transform: rotate(319.2deg) skew(54deg);
+  -webkit-transform: rotate(319.2deg) skew(54deg);
+  -moz-transform: rotate(319.2deg) skew(54deg);
+  -o-transform: rotate(319.2deg) skew(54deg);
+  transform: rotate(319.2deg) skew(54deg); }
+
+.glass {
+  position: absolute;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  border-radius: 50%; }
+  border-radius: 50%;
+  -ms-transform: skew(-54deg);
+  -webkit-transform: skew(-54deg);
+  -moz-transform: skew(-54deg);
+  -o-transform: skew(-54deg);
+  transform: skew(-54deg);
+  width: 13.2vh;
+  height: 13.2vh;
+  background-color: #25150b;
+  border: 1.056vh solid #d4af37; }
 
-#upper {
-  top: 0; }
-
-#lower {
-  top: 10vh; }
-
-#count {
-  top: 15vh; }
-
-#sides {
+.cards_area {
   position: absolute;
-  top: 55.25vh;
-  left: 50%;
-  margin-left: -65.25vh;
-  width: 130.5vh;
-  height: 10vh;
-  border-left: .5vh solid white;
-  border-right: .5vh solid white; }
+  border-bottom: 0.495vh solid white;
+  border-left: 0.495vh solid white;
+  border-right: 0.495vh solid white;
+  top: 5.5vh; }
 
-#players_bets_area {
-  width: 50vh;
-  position: relative;
-  margin: 0 auto;
-  margin-top: 55vh; }
+#cards_lower {
+  left: 50%;
+  margin-left: -49.5vh;
+  height: 49.5vh;
+  width: 99vh;
+  -webkit-border-radius: 0 0 99vh 99vh;
+  -moz-border-radius: 0 0 99vh 99vh;
+  -ms-border-radius: 0 0 99vh 99vh;
+  -o-border-radius: 0 0 99vh 99vh;
+  border-radius: 0 0 99vh 99vh; }
+
+#cards_upper {
+  left: 50%;
+  margin-left: -39.6vh;
+  height: 39.6vh;
+  width: 79.2vh;
+  -webkit-border-radius: 0 0 79.2vh 79.2vh;
+  -moz-border-radius: 0 0 79.2vh 79.2vh;
+  -ms-border-radius: 0 0 79.2vh 79.2vh;
+  -o-border-radius: 0 0 79.2vh 79.2vh;
+  border-radius: 0 0 79.2vh 79.2vh; }
+
+.cards_area_close {
+  position: absolute;
+  top: 0.44vh;
+  height: 5.5vh;
+  width: 9.9vh;
+  border-bottom: 0.495vh solid white; }
+
+#cards_left {
+  left: 50%;
+  margin-left: -49.5vh; }
+
+#cards_right {
+  right: 50%;
+  margin-right: -49.5vh; }
+
+#bet_zero {
+  -ms-transform: rotate(-69deg);
+  -webkit-transform: rotate(-69deg);
+  -moz-transform: rotate(-69deg);
+  -o-transform: rotate(-69deg);
+  transform: rotate(-69deg);
+  right: 50%;
+  margin-right: -65.296vh;
+  margin-top: 13.904vh; }
+
+#bet_one {
+  -ms-transform: rotate(-34.3deg);
+  -webkit-transform: rotate(-34.3deg);
+  -moz-transform: rotate(-34.3deg);
+  -o-transform: rotate(-34.3deg);
+  transform: rotate(-34.3deg);
+  right: 50%;
+  margin-right: -41.8528vh;
+  margin-top: 43.56vh; }
+
+#bet_two {
+  left: 50%;
+  margin-left: -6.16vh;
+  margin-top: 54.45vh; }
+
+#bet_three {
+  -ms-transform: rotate(34.3deg);
+  -webkit-transform: rotate(34.3deg);
+  -moz-transform: rotate(34.3deg);
+  -o-transform: rotate(34.3deg);
+  transform: rotate(34.3deg);
+  left: 50%;
+  margin-left: -41.8528vh;
+  margin-top: 43.472vh; }
+
+#bet_four {
+  -ms-transform: rotate(69.2deg);
+  -webkit-transform: rotate(69.2deg);
+  -moz-transform: rotate(69.2deg);
+  -o-transform: rotate(69.2deg);
+  transform: rotate(69.2deg);
+  left: 50%;
+  margin-left: -65.296vh;
+  margin-top: 13.728vh; }
 
 .bet {
   position: absolute;
-  width: 14vh;
-  height: 20vh;
+  top: 5.5vh;
+  width: 12.32vh;
+  height: 17.6vh;
   border: .5vh solid white;
   -webkit-border-radius: 10%;
   -moz-border-radius: 10%;
   -ms-border-radius: 10%;
   -o-border-radius: 10%;
   border-radius: 10%; }
-
-#first_player {
-  top: 17.5vh;
-  left: -77%;
-  margin-left: -7vh;
-  -ms-transform: rotate(26deg);
-  -webkit-transform: rotate(26deg);
-  -moz-transform: rotate(26deg);
-  -o-transform: rotate(26deg);
-  transform: rotate(26deg); }
-
-#second_player {
-  top: 27vh;
-  left: -17%;
-  margin-left: -7vh;
-  -ms-transform: rotate(10.5deg);
-  -webkit-transform: rotate(10.5deg);
-  -moz-transform: rotate(10.5deg);
-  -o-transform: rotate(10.5deg);
-  transform: rotate(10.5deg); }
-
-#third_player {
-  top: 30vh;
-  left: 50%;
-  margin-left: -7vh; }
-
-#fourth_player {
-  top: 27vh;
-  right: -17%;
-  margin-right: -7vh;
-  -ms-transform: rotate(-10.5deg);
-  -webkit-transform: rotate(-10.5deg);
-  -moz-transform: rotate(-10.5deg);
-  -o-transform: rotate(-10.5deg);
-  transform: rotate(-10.5deg); }
-
-#fifth_player {
-  top: 17.5vh;
-  right: -77%;
-  margin-right: -7vh;
-  -ms-transform: rotate(-26deg);
-  -webkit-transform: rotate(-26deg);
-  -moz-transform: rotate(-26deg);
-  -o-transform: rotate(-26deg);
-  transform: rotate(-26deg); }
-
-#wood_counter {
-  width: 50vh;
-  position: relative;
-  margin: 0 auto;
-  margin-top: -65vh; }
-
-.counter {
-  position: absolute;
-  left: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  border-left: 2vh solid transparent;
-  border-right: 2vh solid transparent; }
-
-#border {
-  border-bottom: 2vh solid #25150b;
-  width: 280vh;
-  height: 140vh;
-  margin-left: -140vh; }
-
-#measure {
-  border-bottom: 2vh solid #25150b;
-  width: 280vh;
-  height: 140vh;
-  margin-left: -140vh;
-  margin-top: 4vh; }
-
-#inner {
-  top: -32vh;
-  background: radial-gradient(transparent 0%, transparent 50%, #663300 50%);
-  width: 400vh;
-  height: 200vh;
-  margin-left: -200vh; }
-
-.glass_holder {
-  position: absolute;
-  height: 14vh;
-  width: 14vh;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  background: #25150b;
-  border: 1vh solid rgba(255, 223, 0, 0.5); }
-
-#glass_one {
-  top: 130vh;
-  left: -120%;
-  margin-left: -7vh; }
-
-#glass_two {
-  top: 140.8vh;
-  left: -35%;
-  margin-left: -7vh; }
-
-#glass_three {
-  top: 144vh;
-  left: 50%;
-  margin-left: -7vh; }
-
-#glass_four {
-  top: 140.8vh;
-  right: -35%;
-  margin-right: -7vh; }
-
-#glass_five {
-  top: 130vh;
-  right: -120%;
-  margin-right: -7vh; }
 
 /*# sourceMappingURL=style.css.map */
