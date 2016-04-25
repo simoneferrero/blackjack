@@ -11,6 +11,14 @@ app.controller('WelcomePage', ['$scope', function($scope) {
   };
 }]);
 
+app.controller('Table', ['$scope', function($scope) {
+  $scope.name = `<span>Simone's Casino</span>`
+  $scope.title = `<span>SUPER</span> <span>AWESOME</span><br /><span><span>B</span><span>L</span><span>A</span><span>C</span><span>K</span><span>J</span><span>A</span><span>C</span><span>K</span>`;
+  $scope.blackjack = `<span>PAYS 3 TO 2</span>`;
+  $scope.insurance =  divideLetters("PAYS 2TO1 - INSURANCE - PAYS 2TO1");
+// `<span>PAYS 2 TO 1 - INSURANCE - PAYS 2 TO 1</span>`;
+}]);
+
 app.controller('Dealer', ['$scope', function($scope) {
   $scope.user = dealer;
   $scope.cards = $scope["user"].cards;

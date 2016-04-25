@@ -22,7 +22,7 @@
         .ready(function() {
         });
     </script>
-    <div id="welcome" ng-controller="WelcomePage">
+    <div id="welcome" class="center" ng-controller="WelcomePage">
       <div class="chip red" id="title_background">
         <div class="stripes">
           <div class="stripe light_grey zero_degrees"></div>
@@ -55,7 +55,7 @@
         <div class="inner_shadow">
         </div>
         <div class="inner_circle red_inner" id="provatre">
-          <div id="title">
+          <div class="title">
             <h3 ng-bind-html="intro | to_trusted"></h3>
             <h1 ng-bind-html="title | to_trusted"></h1>
             <p ng-bind-html="paragraph | to_trusted"></p>
@@ -64,20 +64,54 @@
         </div>
       </div>
     </div>
-    <div id="table">
-      <div id="dealer" class="cards" ng-controller="Dealer">
-        <div class="card" ng-repeat="card in cards"><img ng-src="{{ card.image }}" /></div>
-        <div class="total">{{ user.total }}</div>
+    <div id="table" class="center">
+      <div class="wrapper">
+        <div id="table_dealer_area_border" class="table_dealer_area"></div>
+        <div id="table_dealer_area_inner" class="table_dealer_area"></div>
+        <div id="table_border" class="table_shape">
+          <div class="glass_container" id="glass_zero"><div class="glass"></div></div>
+          <div class="glass_container" id="glass_one"><div class="glass"></div></div>
+          <div class="glass_container" id="glass_two"><div class="glass"></div></div>
+          <div class="glass_container" id="glass_three"><div class="glass"></div></div>
+          <div class="glass_container" id="glass_four"><div class="glass"></div></div>
+        </div>
+        <div id="table_inner" class="table_shape">
+          <div id="table_title" class="title" ng-controller="Table">
+            <h3 ng-bind-html="name | to_trusted"></h3>
+            <h1 ng-bind-html="title | to_trusted"></h1>
+            <h3 ng-bind-html="blackjack | to_trusted"></h3>
+            <h3><span ng-bind-html="insurance | to_trusted"></span></h3>
+          </div>
+        </div>
+        <div id="cards_area">
+          <div id="cards_lower" class="cards_area"></div>
+          <div id="cards_upper" class="cards_area"></div>
+          <div id="cards_left" class="cards_area_close"></div>
+          <div id="cards_right" class="cards_area_close"></div>
+        </div>
+        <div id="bets_area">
+          <div class="bet" id="bet_zero"></div>
+          <div class="bet" id="bet_one"></div>
+          <div class="bet" id="bet_two"></div>
+          <div class="bet" id="bet_three"></div>
+          <div class="bet" id="bet_four"></div>
+        </div>
       </div>
-      <div id="player" class="cards" ng-controller="Player">
-        <div class="card" ng-repeat="card in cards"><img ng-src="{{ card.image }}" /></div>
-        <div class="total">{{ user.total }}</div>
-      </div>
-      <div id="actions" ng-controller="Actions">
-        <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status">{{ button.name }}</button>
-      </div>
-      <div id="communications" ng-controller="Communications">
-        <span>{{ data.communications }}</span>
+      <div class="interface">
+        <div id="dealer" class="cards" ng-controller="Dealer">
+          <div class="card" ng-repeat="card in cards"><img ng-src="{{ card.image }}" /></div>
+          <div class="total">{{ user.total }}</div>
+        </div>
+        <div id="player" class="cards" ng-controller="Player">
+          <div class="card" ng-repeat="card in cards"><img ng-src="{{ card.image }}" /></div>
+          <div class="total">{{ user.total }}</div>
+        </div>
+        <div id="communications" ng-controller="Communications">
+          <span>{{ data.communications }}</span>
+        </div>
+        <div id="actions" ng-controller="Actions">
+          <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status">{{ button.name }}</button>
+        </div>
       </div>
     </div>
   </body>

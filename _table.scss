@@ -1,63 +1,4 @@
-@import 'rules';
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  @include box-sizing(border-box);
-}
-
-*:after, *:before {
-  @include box-sizing(border-box);
-}
-
-article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
-  display: block;
-}
-
-html {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-html, body {
-  font-size: 1vw;
-  font-weight: 400;
-  line-height: 1.7vw;
-  min-height: 100%;
-  display: block;
-  background-color: rgb(80, 0, 0);
-}
-
-body {
-  // font-family: 'Playfair Display', serif;
-  position: relative;
-}
-
-.clear {
-  display: block;
-}
-
-.clear::after {
-  clear: both;
-  content: ".";
-  display: block;
-  height: 1px;
-  visibility: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-#wrapper {
-  position: relative;
-  width: 50vh;
-  height: 50vh;
-  margin: 0 auto;
-}
-
+$carpet: rgb(90, 0, 0);
 $wood: rgb(102, 51, 0);
 $dark_wood: rgb(37, 21, 11);
 $table_width: 220vh;
@@ -69,7 +10,6 @@ $bet_container_width: $inner_table_width * 0.2;
 $glass_width: $table_width * 0.06;
 $cards_area_width: $table_width * 0.45;
 $bet_height: $table_width * 0.08;
-// $glass_base_top: ($inner_table_width + 0.125 * $inner_table_width) * $rapport;
 
 @mixin semicircle($width) {
   left: 50%;

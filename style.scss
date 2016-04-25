@@ -1,5 +1,6 @@
 @import 'rules';
 @import 'chip';
+@import 'table';
 
 * {
   margin: 0;
@@ -18,7 +19,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
 
 html {
   overflow-x: hidden;
-  // overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 html, body {
@@ -27,12 +28,10 @@ html, body {
   line-height: 1.7vw;
   min-height: 100%;
   display: inline-block;
-  // color: $dark;
-  // background-color: $dark;
 }
 
 body {
-  // font-family: 'Playfair Display', serif;
+  background-color: $carpet;
 }
 
 .clear {
@@ -51,29 +50,29 @@ a {
   color: inherit;
 }
 
-#welcome {
-  color: $gold;
-  position: absolute;
-  top: 0;
-  @include user-select(none);
-  cursor: default;
-  background-color: $table;
+.center {
   min-width: 100vw;
   min-height: 100vh;
   height: 100%;
   width: 100%;
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+}
+
+#welcome {
+  background-color: $table;
 }
 
 #title_background {
   height: 130vh;
   width: 130vh;
-  margin: 0 auto;
+  // margin: 0 auto;
   @include vertical-align();
   overflow: hidden;
   box-shadow: 1vh 1vh $black-shadow;
+  position: absolute;
+  left: 50%;
+  margin-left: -65vh;
 }
 
 .red {
@@ -96,14 +95,14 @@ a {
   background: $chip_red;
 }
 
-#title {
+.title {
   height: 100%;
   width: 100%;
   @include border-radius(50%);
-  overflow: hidden;
+  // overflow: hidden;
 }
 
-#title > h3 {
+.title > h3 {
   font-size: 4vh;
   line-height: 4vh;
   font-weight: 500;
@@ -113,13 +112,13 @@ a {
   color: $gold;
 }
 
-#title > h3 span {
+.title > h3 span {
   font-size: 4.5vh;
   font-weight: 600;
   color: $light_gold;
 }
 
-#title > h1 {
+.title > h1 {
   font-size: 7vh;
   line-height: 8vh;
   font-weight: 700;
@@ -127,28 +126,28 @@ a {
   text-shadow: .3vh .5vh $black_shadow;
 }
 
-#title > h1 > span:nth-child(1) {
+.title > h1 > span:nth-child(1) {
   color: $light_grey;
 }
 
-#title > h1 > span:nth-child(2) {
+.title > h1 > span:nth-child(2) {
   color: $light_gold;
 }
 
-#title > h1 > span:nth-child(4){
+.title > h1 > span:nth-child(4){
   font-size: 10vh;
   line-height: 10vh;
 }
 
-#title > h1 > span:nth-child(4) span:nth-child(odd) {
+.title > h1 > span:nth-child(4) span:nth-child(odd) {
   color: $light_grey;
 }
 
-#title > h1 > span:nth-child(4) span:nth-child(even) {
+.title > h1 > span:nth-child(4) span:nth-child(even) {
   color: $light_gold;
 }
 
-#title > p {
+.title > p {
   font-size: 3vh;
   line-height: 4vh;
   font-weight: 400;
@@ -156,7 +155,7 @@ a {
   color: white;
 }
 
-#title > button {
+.title > button {
   font-size: 5vh;
   font-weight: 600;
   line-height: 3vh;
@@ -171,7 +170,7 @@ a {
   transition: .2s linear;
 }
 
-#title > button:hover {
+.title > button:hover {
   margin-top: 1.5vh;
   height: 23vh;
   width: 23vh;
@@ -180,38 +179,77 @@ a {
 }
 
 #table {
-  background-color: $table;
-  min-width: 100vw;
-  min-height: 100vh;
-  height: 100%;
-  width: 100%;
   display: none;
+  background-color: $carpet;
+}
+
+.wrapper {
+  position: relative;
+  width: 50vh;
+  height: 50vh;
+  margin: 0 auto;
+}
+
+#table_title > * {
+  margin: 0 auto;
+}
+
+#table_title > h3:nth-child(1) {
+  margin-top: -6vh;
+}
+
+#table_title > h3:nth-child(1) span {
+  font-size: 3vh;
+  line-height: 3vh;
+}
+
+#table_title > h1 span {
+  font-size: 6vh;
+  line-height: 0;
+}
+
+#table_title > h1 > span > span {
+  font-size: 8vh;
+  line-height: 0;
+}
+
+#table_title > h3:nth-child(3) > span {
+  font-size: 2vh;
+  color: white;
+}
+
+#table_title > h3:nth-child(4) {
+  position: relative;
+  transform: rotate(90deg); //rendere compatibile
+  transform-origin: center top; //rendere compatibile
+  margin: -20vh auto;
+}
+
+#table_title > h3:nth-child(4) > span > span {
   position: absolute;
-  top: 0;
+  left: 50%;
+  margin-left: -2.5vh;
+  font-size: 4vh;
+  transform-origin: center -4vh; //rendere compatibile
+  width: 0.9vh;
+  height: 45vh;
+  line-height: (90vh - 10vh);
+  text-align: center;
+  top: 3.8vh;
 }
 
-.cards {
-  margin-top: 50px;
+@for $i from 0 through 32 {
+  .char#{$i} {
+    transform: rotate(($i*-5.6)+deg); //rendere compatibile
+  }
 }
 
-.card {
-  width: auto;
-  height: 20vh;
-  display: inline-block;
+@for $i from 0 through 16 {
+  .char#{$i} {
+    top: 1vh - ($i *0.06vh);
+  }
 }
 
-.card img {
-  height: 100%;
-  width: auto;
-}
-
-.total {
-  font-size: 3em;
-  line-height: 3em;
-  color: white;
-}
-
-#communications {
-  color: white;
-  font-size: 2em;
+.interface {
+  position: absolute;
 }

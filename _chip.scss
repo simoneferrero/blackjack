@@ -1,6 +1,5 @@
 .chip {
   @include border-radius(50%);
-  position: relative;
   overflow: hidden;
 }
 

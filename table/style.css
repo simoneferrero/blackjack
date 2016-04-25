@@ -28,7 +28,7 @@ html, body {
   line-height: 1.7vw;
   min-height: 100%;
   display: block;
-  background-color: RGB(80, 0, 0); }
+  background-color: #500000; }
 
 body {
   position: relative; }
@@ -269,5 +269,9 @@ a {
   -ms-border-radius: 10%;
   -o-border-radius: 10%;
   border-radius: 10%; }
+
+.title {
+  color: red;
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

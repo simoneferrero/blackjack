@@ -128,3 +128,12 @@ function changeStatus(array) {
   array[1].status === true ? array[1].status = false : array[1].status = true;
   array[2].status === true ? array[2].status = false : array[2].status = true;
 }
+
+function divideLetters(phrase) {
+  var phrase = phrase.split(""),
+    newPhrase = [];
+  for (var i = 0; i < phrase.length; i++) {
+    newPhrase.push("<span class='char" + i + "'>" + phrase[i] + "</span>");
+  }
+  return newPhrase.join("");
+}
