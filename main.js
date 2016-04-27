@@ -91,6 +91,11 @@ var dealer = new Component();
 
 var player = new Component();
 
+var money = {
+  reserve: 1000,
+  bet: 0
+}
+
 function dealCard(receiver) {
   if (receiver.total <= 21) {
     var card = data["fullDeck"].shift();

@@ -1,9 +1,8 @@
 app.controller('WelcomePage', ['$scope', function($scope) {
   $scope.intro = `<span>Simone's Casino</span><br />is proud to present:`
   $scope.title = `<span>SUPER</span> <span>AWESOME</span><br /><span><span>B</span><span>L</span><span>A</span><span>C</span><span>K</span><span>J</span><span>A</span><span>C</span><span>K</span>`;
-  $scope.paragraph = `Welcome to my Blackjack web application!<br />
-    Choose how much you want to start with and, as always...<br />
-    <span>Winner, winner, chicken dinner!</span>`;
+  $scope.paragraph = `Welcome to my Blackjack web application:<br />
+    May luck be in your favour!`;
   $scope.goToApp = function() {
     console.log("hello");
     $("#table")
@@ -32,8 +31,11 @@ app.controller('Player', ['$scope', function($scope) {
 app.controller('Actions', ['$scope', function($scope) {
   $scope.buttons = [
     {name: "Deal", status: false, baseColour: "blue_darker", mainColour: "blue", radiantColour: "blue_radiant"},
-    {name: "Hit", status: true, baseColour: "yellow_darker", mainColour: "yellow", radiantColour: "yellow_radiant"},
-    {name: "Stand", status: true, baseColour: "purple_darker", mainColour: "purple", radiantColour: "purple_radiant"}
+    {name: "Hit", status: true, baseColour: "red_darker", mainColour: "red", radiantColour: "red_radiant"},
+    {name: "Stand", status: true, baseColour: "purple_darker", mainColour: "purple", radiantColour: "purple_radiant"},
+    {name: "Double", status: true, baseColour: "orange_darker", mainColour: "orange", radiantColour: "orange_radiant"},
+    {name: "Split", status: true, baseColour: "brown_darker", mainColour: "brown", radiantColour: "brown_radiant"},
+    {name: "Surrender", status: true, baseColour: "black_darker", mainColour: "black", radiantColour: "black_radiant"}
   ];
   $scope.actions = function(button) {
     var buttons = $scope["buttons"];

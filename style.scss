@@ -75,7 +75,7 @@ a {
   margin-left: -65vh;
 }
 
-.red {
+.red_welcome {
   background: $chip_redder;
 }
 
@@ -245,7 +245,6 @@ a {
 }
 
 .interface {
-  // position: absolute;
   top: 0;
   left: 0;
 }
@@ -318,13 +317,17 @@ a {
 
 #actions {
   position: absolute;
-  top: 85vh;
+  top: 70vh;
   left: 50%;
-  margin-left: -26.5vh;
+  margin-left: -50vh;
+  width: 100vh;
+  height: 30vh;
 }
 
 #actions > button {
-  background: transparent;
+  position: absolute;
+  background: none;
+  border: none;
   transition: 0.5s linear;
   cursor: pointer;
 }
@@ -332,23 +335,11 @@ a {
 #actions > button:disabled {
   opacity: .5;
   cursor: default;
-  // .chip {
-  //   background: $dark_grey;
-  // }
-  //
-  // .outer_circle {
-  //   background: radial-gradient(circle, transparent 0%, transparent 50%, $dark_grey 50%);
-  // }
-  //
-  // .inner_circle {
-  //   background: $dark_grey;
-  // }
 }
 
 
 #actions > button > div {
   position: absolute;
-  top: 50%;
   height: 12vh;
   width: 12vh;
   transition: 0.2s linear;
@@ -359,20 +350,43 @@ a {
 }
 
 #actions > button .inner_circle {
-  padding-top: 2.4vh;
+  padding-top: 2.65vh;
+}
+
+#actions > button:nth-child(6) .inner_circle {
+  padding-top: 3vh;
 }
 
 #actions > button .inner_circle span {
   color: white;
-  font-size: 2.5vh;
+  font-size: 2.4vh;
   font-weight: 600;
 }
 
+#actions > button:nth-child(6) .inner_circle span {
+  font-size: 1.5vh;
+}
+
+#actions > span {
+  position: absolute;
+  font-size: 6vh;
+  font-weight: 500;
+  color: $light-gold;
+  top: 14vh;
+  right: 1vh;
+  height: 0;
+  text-shadow: .2vh .5vh $black-shadow;
+  @include rotate(-20deg);
+  @include user-select(none);
+  cursor: default;
+}
+
 .blue_darker {
-  top: 0;
   background: $chip_bluer;
   @include vertical-align();
   overflow: hidden;
+  top: 8vh;
+  left: 17.6vh * 0;
 }
 
 .blue {
@@ -383,28 +397,28 @@ a {
   background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_blue 50%);
 }
 
-.yellow_darker {
-  background: $chip_yellower;
-  top: 0;
-  left: 20vh;
+.red_darker {
+  background: $chip_redder;
   @include vertical-align();
   overflow: hidden;
+  top: 8vh * 2;
+  left: 17.6vh * 1;
 }
 
-.yellow {
-  background: $chip_yellow;
+.red {
+  background: $chip_red;
 }
 
-.yellow_radiant {
-  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_yellow 50%);
+.red_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_red 50%);
 }
 
 .purple_darker {
   background: $chip_purpler;
-  top: 0;
-  left: 40vh;
   @include vertical-align();
   overflow: hidden;
+  top: 8vh * 2.6;
+  left: 17.6vh * 2;
 }
 
 .purple_radiant {
@@ -412,7 +426,55 @@ a {
 }
 
 .purple {
-  background-color: $chip_purple;
+  background: $chip_purple;
+}
+
+.orange_darker {
+  background: $chip_oranger;
+  @include vertical-align();
+  overflow: hidden;
+  top: 8vh * 2.6;
+  left: 17.6vh * 3;
+}
+
+.orange_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_orange 50%);
+}
+
+.orange {
+  background: $chip_orange;
+}
+
+.brown_darker {
+  background: $chip_browner;
+  @include vertical-align();
+  overflow: hidden;
+  top: 8vh * 2;
+  left: 17.6vh * 4;
+}
+
+.brown_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_brown 50%);
+}
+
+.brown {
+  background: $chip_brown;
+}
+
+.black_darker {
+  background: $chip_black;
+  @include vertical-align();
+  overflow: hidden;
+  top: 8vh;
+  left: 17.6vh * 5;
+}
+
+.black_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_black 50%);
+}
+
+.black {
+  background: $chip_black;
 }
 
 #communications {

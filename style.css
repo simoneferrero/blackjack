@@ -516,7 +516,7 @@ a {
   left: 50%;
   margin-left: -65vh; }
 
-.red {
+.red_welcome {
   background: #a70a0c; }
 
 .light_grey {
@@ -1212,12 +1212,16 @@ a {
 
 #actions {
   position: absolute;
-  top: 85vh;
+  top: 70vh;
   left: 50%;
-  margin-left: -26.5vh; }
+  margin-left: -50vh;
+  width: 100vh;
+  height: 30vh; }
 
 #actions > button {
-  background: transparent;
+  position: absolute;
+  background: none;
+  border: none;
   transition: 0.5s linear;
   cursor: pointer; }
 
@@ -1227,7 +1231,6 @@ a {
 
 #actions > button > div {
   position: absolute;
-  top: 50%;
   height: 12vh;
   width: 12vh;
   transition: 0.2s linear; }
@@ -1236,22 +1239,50 @@ a {
   box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4); }
 
 #actions > button .inner_circle {
-  padding-top: 2.4vh; }
+  padding-top: 2.65vh; }
+
+#actions > button:nth-child(6) .inner_circle {
+  padding-top: 3vh; }
 
 #actions > button .inner_circle span {
   color: white;
-  font-size: 2.5vh;
+  font-size: 2.4vh;
   font-weight: 600; }
 
+#actions > button:nth-child(6) .inner_circle span {
+  font-size: 1.5vh; }
+
+#actions > span {
+  position: absolute;
+  font-size: 6vh;
+  font-weight: 500;
+  color: #d4af37;
+  top: 14vh;
+  right: 1vh;
+  height: 0;
+  text-shadow: 0.2vh 0.5vh rgba(0, 0, 0, 0.4);
+  -ms-transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default; }
+
 .blue_darker {
-  top: 0;
   background: #001b86;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  overflow: hidden; }
+  overflow: hidden;
+  top: 8vh;
+  left: 0vh; }
 
 .blue {
   background: #132f9a; }
@@ -1259,39 +1290,90 @@ a {
 .blue_radiant {
   background: radial-gradient(circle, transparent 0%, transparent 50%, #132f9a 50%); }
 
-.yellow_darker {
-  background: #bfa590;
-  top: 0;
-  left: 20vh;
+.red_darker {
+  background: #a70a0c;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  overflow: hidden; }
+  overflow: hidden;
+  top: 16vh;
+  left: 17.6vh; }
 
-.yellow {
-  background: #ffdc3b; }
+.red {
+  background: #c10c0e; }
 
-.yellow_radiant {
-  background: radial-gradient(circle, transparent 0%, transparent 50%, #ffdc3b 50%); }
+.red_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, #c10c0e 50%); }
 
 .purple_darker {
   background: #5c1959;
-  top: 0;
-  left: 40vh;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  overflow: hidden; }
+  overflow: hidden;
+  top: 20.8vh;
+  left: 35.2vh; }
 
 .purple_radiant {
   background: radial-gradient(circle, transparent 0%, transparent 50%, #762072 50%); }
 
 .purple {
-  background-color: #762072; }
+  background: #762072; }
+
+.orange_darker {
+  background: #e06535;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden;
+  top: 20.8vh;
+  left: 52.8vh; }
+
+.orange_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, #fa713a 50%); }
+
+.orange {
+  background: #fa713a; }
+
+.brown_darker {
+  background: #470004;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden;
+  top: 16vh;
+  left: 70.4vh; }
+
+.brown_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, #610005 50%); }
+
+.brown {
+  background: #610005; }
+
+.black_darker {
+  background: black;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden;
+  top: 8vh;
+  left: 88vh; }
+
+.black_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, black 50%); }
+
+.black {
+  background: black; }
 
 #communications {
   display: none;
