@@ -31,9 +31,9 @@ app.controller('Player', ['$scope', function($scope) {
 
 app.controller('Actions', ['$scope', function($scope) {
   $scope.buttons = [
-    {name: "Deal", status: false},
-    {name: "Hit", status: true},
-    {name: "Stand", status: true}
+    {name: "Deal", status: false, baseColour: "blue_darker", mainColour: "blue", radiantColour: "blue_radiant"},
+    {name: "Hit", status: true, baseColour: "yellow_darker", mainColour: "yellow", radiantColour: "yellow_radiant"},
+    {name: "Stand", status: true, baseColour: "purple_darker", mainColour: "purple", radiantColour: "purple_radiant"}
   ];
   $scope.actions = function(button) {
     var buttons = $scope["buttons"];
@@ -41,15 +41,26 @@ app.controller('Actions', ['$scope', function($scope) {
       // buttons[0].status = true;
       // buttons[1].status = false;
       // buttons[2].status = false;
-      data["communications"] = "";
-      changeStatus(buttons);
       firstDeal();
+      changeStatus(buttons);
+      buttons[0].name = "Clear";
       if (player.total === 21) {
+      $("#communications")
+        .fadeIn(200);
         data["communications"] = "Blackjack!";
       }
+    } else if (button === "Clear") {
+      $("#communications")
+        .fadeOut(200, function() {
+          data["communications"] = "";
+        });
+        cleanTable();
+        buttons[0].name = "Deal";
     } else if (button === "Hit") {
       dealCard(player);
       if (player.total > 21) {
+        $("#communications")
+          .fadeIn(200);
         data["communications"] = "Busted! You lose!";
         changeStatus(buttons);
       } else {
@@ -60,6 +71,8 @@ app.controller('Actions', ['$scope', function($scope) {
       // buttons[0].status = false;
       // buttons[1].status = true;
       // buttons[2].status = true;
+      $("#communications")
+        .fadeIn(200);
       if (dealer.total > 21) {
         data["communications"] = "Dealer busted! You win!";
       } else if (player.total > dealer.total || (player.total === 21 && player.total === dealer.total && player["cards"].length === 2 && dealer["cards"].length > 2)) {

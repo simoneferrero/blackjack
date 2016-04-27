@@ -757,58 +757,558 @@ a {
 .char32 {
   transform: rotate(-179.2deg); }
 
-.char0 {
-  top: 1vh; }
-
-.char1 {
-  top: 0.94vh; }
-
-.char2 {
-  top: 0.88vh; }
-
-.char3 {
-  top: 0.82vh; }
-
-.char4 {
-  top: 0.76vh; }
-
-.char5 {
-  top: 0.7vh; }
-
-.char6 {
-  top: 0.64vh; }
-
-.char7 {
-  top: 0.58vh; }
-
-.char8 {
-  top: 0.52vh; }
-
-.char9 {
-  top: 0.46vh; }
-
-.char10 {
-  top: 0.4vh; }
-
-.char11 {
-  top: 0.34vh; }
-
-.char12 {
-  top: 0.28vh; }
-
-.char13 {
-  top: 0.22vh; }
-
-.char14 {
-  top: 0.16vh; }
-
-.char15 {
-  top: 0.1vh; }
-
-.char16 {
-  top: 0.04vh; }
-
 .interface {
-  position: absolute; }
+  top: 0;
+  left: 0; }
+
+.cards {
+  height: 30vh;
+  width: 60vh;
+  position: absolute;
+  left: 50%;
+  display: inline; }
+
+#dealer {
+  top: 5vh;
+  margin-left: -12vh; }
+
+#player {
+  top: 36vh;
+  margin-left: -12vh; }
+
+.card {
+  height: 20vh;
+  width: auto;
+  display: inline-block;
+  border: 0.2vh black solid;
+  background-color: white;
+  position: absolute;
+  overflow: hidden;
+  -webkit-border-radius: 8%;
+  -moz-border-radius: 8%;
+  -ms-border-radius: 8%;
+  -o-border-radius: 8%;
+  border-radius: 8%; }
+
+.card:nth-child(1) {
+  margin-left: 0;
+  margin-top: 0; }
+
+.card:nth-child(2) {
+  margin-top: 3%;
+  margin-left: 8%; }
+
+.card:nth-child(3) {
+  margin-top: 6%;
+  margin-left: 16%; }
+
+.card:nth-child(4) {
+  margin-top: 9%;
+  margin-left: 24%; }
+
+.card:nth-child(5) {
+  margin-top: 12%;
+  margin-left: 32%; }
+
+.card:nth-child(6) {
+  margin-top: 15%;
+  margin-left: 40%; }
+
+.card:nth-child(7) {
+  margin-top: 18%;
+  margin-left: 48%; }
+
+.card:nth-child(8) {
+  margin-top: 21%;
+  margin-left: 56%; }
+
+.card:nth-child(9) {
+  margin-top: 24%;
+  margin-left: 64%; }
+
+.card:nth-child(10) {
+  margin-top: 27%;
+  margin-left: 72%; }
+
+.card:nth-child(11) {
+  margin-top: 30%;
+  margin-left: 80%; }
+
+.card:nth-child(12) {
+  margin-top: 33%;
+  margin-left: 88%; }
+
+.card:nth-child(13) {
+  margin-top: 36%;
+  margin-left: 96%; }
+
+.card:nth-child(14) {
+  margin-top: 39%;
+  margin-left: 104%; }
+
+.card:nth-child(15) {
+  margin-top: 42%;
+  margin-left: 112%; }
+
+.card:nth-child(16) {
+  margin-top: 45%;
+  margin-left: 120%; }
+
+.card:nth-child(17) {
+  margin-top: 48%;
+  margin-left: 128%; }
+
+.card:nth-child(18) {
+  margin-top: 51%;
+  margin-left: 136%; }
+
+.card:nth-child(19) {
+  margin-top: 54%;
+  margin-left: 144%; }
+
+.card:nth-child(20) {
+  margin-top: 57%;
+  margin-left: 152%; }
+
+.card:nth-child(21) {
+  margin-top: 60%;
+  margin-left: 160%; }
+
+.card:nth-child(22) {
+  margin-top: 63%;
+  margin-left: 168%; }
+
+.card:nth-child(23) {
+  margin-top: 66%;
+  margin-left: 176%; }
+
+.card:nth-child(24) {
+  margin-top: 69%;
+  margin-left: 184%; }
+
+.card:nth-child(25) {
+  margin-top: 72%;
+  margin-left: 192%; }
+
+.card:nth-child(26) {
+  margin-top: 75%;
+  margin-left: 200%; }
+
+.card:nth-child(27) {
+  margin-top: 78%;
+  margin-left: 208%; }
+
+.card:nth-child(28) {
+  margin-top: 81%;
+  margin-left: 216%; }
+
+.card:nth-child(29) {
+  margin-top: 84%;
+  margin-left: 224%; }
+
+.card:nth-child(30) {
+  margin-top: 87%;
+  margin-left: 232%; }
+
+.card:nth-child(31) {
+  margin-top: 90%;
+  margin-left: 240%; }
+
+.card:nth-child(32) {
+  margin-top: 93%;
+  margin-left: 248%; }
+
+.card:nth-child(33) {
+  margin-top: 96%;
+  margin-left: 256%; }
+
+.card:nth-child(34) {
+  margin-top: 99%;
+  margin-left: 264%; }
+
+.card:nth-child(35) {
+  margin-top: 102%;
+  margin-left: 272%; }
+
+.card:nth-child(36) {
+  margin-top: 105%;
+  margin-left: 280%; }
+
+.card:nth-child(37) {
+  margin-top: 108%;
+  margin-left: 288%; }
+
+.card:nth-child(38) {
+  margin-top: 111%;
+  margin-left: 296%; }
+
+.card:nth-child(39) {
+  margin-top: 114%;
+  margin-left: 304%; }
+
+.card:nth-child(40) {
+  margin-top: 117%;
+  margin-left: 312%; }
+
+.card:nth-child(41) {
+  margin-top: 120%;
+  margin-left: 320%; }
+
+.card:nth-child(42) {
+  margin-top: 123%;
+  margin-left: 328%; }
+
+.card:nth-child(43) {
+  margin-top: 126%;
+  margin-left: 336%; }
+
+.card:nth-child(44) {
+  margin-top: 129%;
+  margin-left: 344%; }
+
+.card:nth-child(45) {
+  margin-top: 132%;
+  margin-left: 352%; }
+
+.card:nth-child(46) {
+  margin-top: 135%;
+  margin-left: 360%; }
+
+.card:nth-child(47) {
+  margin-top: 138%;
+  margin-left: 368%; }
+
+.card:nth-child(48) {
+  margin-top: 141%;
+  margin-left: 376%; }
+
+.card:nth-child(49) {
+  margin-top: 144%;
+  margin-left: 384%; }
+
+.card:nth-child(50) {
+  margin-top: 147%;
+  margin-left: 392%; }
+
+.card:nth-child(51) {
+  margin-top: 150%;
+  margin-left: 400%; }
+
+.card:nth-child(52) {
+  margin-top: 153%;
+  margin-left: 408%; }
+
+.card:nth-child(53) {
+  margin-top: 156%;
+  margin-left: 416%; }
+
+.card:nth-child(54) {
+  margin-top: 159%;
+  margin-left: 424%; }
+
+.card:nth-child(55) {
+  margin-top: 162%;
+  margin-left: 432%; }
+
+.card:nth-child(56) {
+  margin-top: 165%;
+  margin-left: 440%; }
+
+.card:nth-child(57) {
+  margin-top: 168%;
+  margin-left: 448%; }
+
+.card:nth-child(58) {
+  margin-top: 171%;
+  margin-left: 456%; }
+
+.card:nth-child(59) {
+  margin-top: 174%;
+  margin-left: 464%; }
+
+.card:nth-child(60) {
+  margin-top: 177%;
+  margin-left: 472%; }
+
+.card:nth-child(61) {
+  margin-top: 180%;
+  margin-left: 480%; }
+
+.card:nth-child(62) {
+  margin-top: 183%;
+  margin-left: 488%; }
+
+.card:nth-child(63) {
+  margin-top: 186%;
+  margin-left: 496%; }
+
+.card:nth-child(64) {
+  margin-top: 189%;
+  margin-left: 504%; }
+
+.card:nth-child(65) {
+  margin-top: 192%;
+  margin-left: 512%; }
+
+.card:nth-child(66) {
+  margin-top: 195%;
+  margin-left: 520%; }
+
+.card:nth-child(67) {
+  margin-top: 198%;
+  margin-left: 528%; }
+
+.card:nth-child(68) {
+  margin-top: 201%;
+  margin-left: 536%; }
+
+.card:nth-child(69) {
+  margin-top: 204%;
+  margin-left: 544%; }
+
+.card:nth-child(70) {
+  margin-top: 207%;
+  margin-left: 552%; }
+
+.card:nth-child(71) {
+  margin-top: 210%;
+  margin-left: 560%; }
+
+.card:nth-child(72) {
+  margin-top: 213%;
+  margin-left: 568%; }
+
+.card:nth-child(73) {
+  margin-top: 216%;
+  margin-left: 576%; }
+
+.card:nth-child(74) {
+  margin-top: 219%;
+  margin-left: 584%; }
+
+.card:nth-child(75) {
+  margin-top: 222%;
+  margin-left: 592%; }
+
+.card:nth-child(76) {
+  margin-top: 225%;
+  margin-left: 600%; }
+
+.card:nth-child(77) {
+  margin-top: 228%;
+  margin-left: 608%; }
+
+.card:nth-child(78) {
+  margin-top: 231%;
+  margin-left: 616%; }
+
+.card:nth-child(79) {
+  margin-top: 234%;
+  margin-left: 624%; }
+
+.card:nth-child(80) {
+  margin-top: 237%;
+  margin-left: 632%; }
+
+.card:nth-child(81) {
+  margin-top: 240%;
+  margin-left: 640%; }
+
+.card:nth-child(82) {
+  margin-top: 243%;
+  margin-left: 648%; }
+
+.card:nth-child(83) {
+  margin-top: 246%;
+  margin-left: 656%; }
+
+.card:nth-child(84) {
+  margin-top: 249%;
+  margin-left: 664%; }
+
+.card:nth-child(85) {
+  margin-top: 252%;
+  margin-left: 672%; }
+
+.card:nth-child(86) {
+  margin-top: 255%;
+  margin-left: 680%; }
+
+.card:nth-child(87) {
+  margin-top: 258%;
+  margin-left: 688%; }
+
+.card:nth-child(88) {
+  margin-top: 261%;
+  margin-left: 696%; }
+
+.card:nth-child(89) {
+  margin-top: 264%;
+  margin-left: 704%; }
+
+.card:nth-child(90) {
+  margin-top: 267%;
+  margin-left: 712%; }
+
+.card:nth-child(91) {
+  margin-top: 270%;
+  margin-left: 720%; }
+
+.card:nth-child(92) {
+  margin-top: 273%;
+  margin-left: 728%; }
+
+.card:nth-child(93) {
+  margin-top: 276%;
+  margin-left: 736%; }
+
+.card:nth-child(94) {
+  margin-top: 279%;
+  margin-left: 744%; }
+
+.card:nth-child(95) {
+  margin-top: 282%;
+  margin-left: 752%; }
+
+.card:nth-child(96) {
+  margin-top: 285%;
+  margin-left: 760%; }
+
+.card:nth-child(97) {
+  margin-top: 288%;
+  margin-left: 768%; }
+
+.card:nth-child(98) {
+  margin-top: 291%;
+  margin-left: 776%; }
+
+.card:nth-child(99) {
+  margin-top: 294%;
+  margin-left: 784%; }
+
+.card:nth-child(100) {
+  margin-top: 297%;
+  margin-left: 792%; }
+
+.card > img {
+  height: 20vh;
+  width: auto; }
+
+.total {
+  position: absolute;
+  left: -12vh;
+  color: white;
+  font-size: 4vh; }
+
+.total > span {
+  color: #d4af37; }
+
+#dealer > .total {
+  top: 59vh;
+  margin-left: -0.5vh; }
+
+#player > .total {
+  top: 33vh; }
+
+#actions {
+  position: absolute;
+  top: 85vh;
+  left: 50%;
+  margin-left: -26.5vh; }
+
+#actions > button {
+  background: transparent;
+  transition: 0.5s linear;
+  cursor: pointer; }
+
+#actions > button:disabled {
+  opacity: .5;
+  cursor: default; }
+
+#actions > button > div {
+  position: absolute;
+  top: 50%;
+  height: 12vh;
+  width: 12vh;
+  transition: 0.2s linear; }
+
+#actions > button > div:hover {
+  box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4); }
+
+#actions > button .inner_circle {
+  padding-top: 2.4vh; }
+
+#actions > button .inner_circle span {
+  color: white;
+  font-size: 2.5vh;
+  font-weight: 600; }
+
+.blue_darker {
+  top: 0;
+  background: #001b86;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden; }
+
+.blue {
+  background: #132f9a; }
+
+.blue_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, #132f9a 50%); }
+
+.yellow_darker {
+  background: #bfa590;
+  top: 0;
+  left: 20vh;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden; }
+
+.yellow {
+  background: #ffdc3b; }
+
+.yellow_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, #ffdc3b 50%); }
+
+.purple_darker {
+  background: #5c1959;
+  top: 0;
+  left: 40vh;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden; }
+
+.purple_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, #762072 50%); }
+
+.purple {
+  background-color: #762072; }
+
+#communications {
+  display: none;
+  position: absolute;
+  width: 100vh;
+  height: auto;
+  font-size: 10vh;
+  line-height: 7vh;
+  color: white;
+  text-align: center;
+  top: 28vh;
+  left: 50%;
+  margin-left: -50vh; }
+
+#communications span {
+  background-color: #256339;
+  border: 0.5vh #d4af37 solid;
+  box-shadow: 1vh 1vh rgba(0, 0, 0, 0.4); }
 
 /*# sourceMappingURL=style.css.map */

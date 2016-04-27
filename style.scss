@@ -244,12 +244,193 @@ a {
   }
 }
 
-@for $i from 0 through 16 {
-  .char#{$i} {
-    top: 1vh - ($i *0.06vh);
+.interface {
+  // position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cards {
+  height: 30vh;
+  width: 60vh;
+  position: absolute;
+  left: 50%;
+  display: inline;
+}
+
+#dealer {
+  top: 5vh;
+  margin-left: -12vh;
+}
+
+#player {
+  top: 36vh;
+  margin-left: -12vh;
+}
+
+.card {
+  height: 20vh;
+  width: auto;;
+  display: inline-block;
+  border: .2vh $black solid;
+  background-color: white;
+  position: absolute;
+  overflow: hidden;
+  @include border-radius(8%);
+}
+
+.card:nth-child(1) {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+@for $i from 2 through 100 {
+  .card:nth-child(#{$i}) {
+    margin-top: (3% * $i) - 3%;
+    margin-left: (8% * $i) - 8%;
   }
 }
 
-.interface {
+.card > img {
+  height: 20vh;
+  width: auto;
+}
+
+.total {
   position: absolute;
+  left: -12vh;
+  color: white;
+  font-size: 4vh;
+}
+
+.total > span {
+  color: $light_gold;
+}
+
+#dealer > .total {
+  top: 59vh;
+  margin-left: -0.5vh;
+}
+
+#player > .total {
+  top: 33vh;
+}
+
+#actions {
+  position: absolute;
+  top: 85vh;
+  left: 50%;
+  margin-left: -26.5vh;
+}
+
+#actions > button {
+  background: transparent;
+  transition: 0.5s linear;
+  cursor: pointer;
+}
+
+#actions > button:disabled {
+  opacity: .5;
+  cursor: default;
+  // .chip {
+  //   background: $dark_grey;
+  // }
+  //
+  // .outer_circle {
+  //   background: radial-gradient(circle, transparent 0%, transparent 50%, $dark_grey 50%);
+  // }
+  //
+  // .inner_circle {
+  //   background: $dark_grey;
+  // }
+}
+
+
+#actions > button > div {
+  position: absolute;
+  top: 50%;
+  height: 12vh;
+  width: 12vh;
+  transition: 0.2s linear;
+}
+
+#actions > button > div:hover {
+  box-shadow: .5vh 1vh $black-shadow;
+}
+
+#actions > button .inner_circle {
+  padding-top: 2.4vh;
+}
+
+#actions > button .inner_circle span {
+  color: white;
+  font-size: 2.5vh;
+  font-weight: 600;
+}
+
+.blue_darker {
+  top: 0;
+  background: $chip_bluer;
+  @include vertical-align();
+  overflow: hidden;
+}
+
+.blue {
+  background: $chip_blue;
+}
+
+.blue_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_blue 50%);
+}
+
+.yellow_darker {
+  background: $chip_yellower;
+  top: 0;
+  left: 20vh;
+  @include vertical-align();
+  overflow: hidden;
+}
+
+.yellow {
+  background: $chip_yellow;
+}
+
+.yellow_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_yellow 50%);
+}
+
+.purple_darker {
+  background: $chip_purpler;
+  top: 0;
+  left: 40vh;
+  @include vertical-align();
+  overflow: hidden;
+}
+
+.purple_radiant {
+  background: radial-gradient(circle, transparent 0%, transparent 50%, $chip_purple 50%);
+}
+
+.purple {
+  background-color: $chip_purple;
+}
+
+#communications {
+  display: none;
+  position: absolute;
+  width: 100vh;
+  height: auto;
+  font-size: 10vh;
+  line-height: 7vh;
+  color: white;
+  text-align: center;
+  top: 28vh;
+  left: 50%;
+  margin-left: -50vh;
+}
+
+#communications span {
+  background-color: $table;
+  border: .5vh $light_gold solid;
+  box-shadow: 1vh 1vh $black-shadow;
 }

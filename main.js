@@ -110,24 +110,31 @@ function dealToDealer() {
   }
 }
 
-function cleanTable(whose) {
+function removeCards(whose) {
   whose["cards"].length = 0;
   whose["total"] = 0;
 }
 
+function cleanTable() {
+  removeCards(dealer);
+  removeCards(player);
+}
 function firstDeal() {
-  cleanTable(dealer);
-  cleanTable(player);
   dealCard(player);
   dealCard(dealer);
   dealCard(player);
 }
-
+$('#mydiv').find('input, textarea, button, select').attr('disabled','disabled');
 function changeStatus(array) {
   array[0].status === false ? array[0].status = true : array[0].status = false;
   array[1].status === true ? array[1].status = false : array[1].status = true;
   array[2].status === true ? array[2].status = false : array[2].status = true;
 }
+//
+// function changeStatus(array) {
+//   if (array[0].status === false) {
+//
+//   }
 
 function divideLetters(phrase) {
   var phrase = phrase.split(""),
