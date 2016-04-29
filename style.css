@@ -609,6 +609,7 @@ a {
   box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4); }
 
 #table {
+  display: none;
   background-color: #5a0000; }
 
 .wrapper {
