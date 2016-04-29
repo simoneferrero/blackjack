@@ -112,17 +112,19 @@ BlackJacks: ${money.blackjacks}`);
         data["communications"] = "Dealer busted! You win!";
         money.reserve += Number(money.buffer);
         money.wins++;
+      } else if (player.total === 21 && player.total === dealer.total && player["cards"].length === 2 && dealer["cards"].length > 2) {
+        data["communications"] = "You win!";
+        console.log("blackjack");
+        money.reserve += (Number(money.buffer) * 1.5);
+        money.wins++;
+      } else if (player.total > dealer.total && player.total === 21 && player["cards"].length === 2) {
+        data["communications"] = "You win!";
+        console.log("blackjack");
+        money.reserve += (Number(money.buffer) * 1.5);
+        money.wins++;
       } else if (player.total > dealer.total) {
         data["communications"] = "You win!";
         money.reserve += Number(money.buffer);
-        money.wins++;
-      } else if (player.total === 21 && player.total === dealer.total && player["cards"].length === 2 && dealer["cards"].length > 2) {
-        data["communications"] = "You win!";
-        money.reserve += Number(money.buffer) * 1.5;
-        money.wins++;
-      } else if (player.total > dealer.total || (player.total === 21 && player["cards"].length === 2)) {
-        data["communications"] = "You win!";
-        money.reserve += Number(money.buffer) * 1.5;
         money.wins++;
       } else if (dealer.total > player.total || (player.total === 21 && player.total === dealer.total && dealer["cards"].length === 2 && player["cards"].length > 2)){
         data["communications"] = "You lose!";
