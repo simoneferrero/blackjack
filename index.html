@@ -110,44 +110,66 @@
           <span>{{ data.communications }}</span>
         </div>
         <div id="actions" ng-controller="Actions">
-          <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status">
-            <div class="chip" ng-class="button.baseColour">
-              <div class="stripes">
-                <div class="stripe light_grey zero_degrees"></div>
-                <div class="stripe light_grey thirty_degrees"></div>
-                <div class="stripe light_grey sixty_degrees"></div>
-                <div class="stripe light_grey ninety_degrees"></div>
-                <div class="stripe light_grey onetwenty_degrees"></div>
-                <div class="stripe light_grey onefifty_degrees"></div>
-              </div>
-              <div class="outer_shadow">
-              </div>
-              <div class="outer_circle" ng-class="button.radiantColour">
-                <div>
-                  <div class="cube light_grey thirty"></div>
-                  <div class="cube light_grey ninety"></div>
-                  <div class="cube light_grey onefifty"></div>
-                  <div class="cube light_grey twoten"></div>
-                  <div class="cube light_grey twoseventy"></div>
-                  <div class="cube light_grey threethirty"></div>
+          <form name="player_bet">
+            <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status || player_bet.$invalid || (money.reserve - money.bet < 0)" id="{{ button.id }}">
+              <div class="chip" ng-class="button.baseColour">
+                <div class="stripes">
+                  <div class="stripe light_grey zero_degrees"></div>
+                  <div class="stripe light_grey thirty_degrees"></div>
+                  <div class="stripe light_grey sixty_degrees"></div>
+                  <div class="stripe light_grey ninety_degrees"></div>
+                  <div class="stripe light_grey onetwenty_degrees"></div>
+                  <div class="stripe light_grey onefifty_degrees"></div>
                 </div>
-                <div>
-                  <div class="dot light_grey zero"></div>
-                  <div class="dot light_grey sixty"></div>
-                  <div class="dot light_grey onetwenty"></div>
-                  <div class="dot light_grey oneeighty"></div>
-                  <div class="dot light_grey twofourty"></div>
-                  <div class="dot light_grey three"></div>
+                <div class="outer_shadow">
+                </div>
+                <div class="outer_circle" ng-class="button.radiantColour">
+                  <div>
+                    <div class="cube light_grey thirty"></div>
+                    <div class="cube light_grey ninety"></div>
+                    <div class="cube light_grey onefifty"></div>
+                    <div class="cube light_grey twoten"></div>
+                    <div class="cube light_grey twoseventy"></div>
+                    <div class="cube light_grey threethirty"></div>
+                  </div>
+                  <div>
+                    <div class="dot light_grey zero"></div>
+                    <div class="dot light_grey sixty"></div>
+                    <div class="dot light_grey onetwenty"></div>
+                    <div class="dot light_grey oneeighty"></div>
+                    <div class="dot light_grey twofourty"></div>
+                    <div class="dot light_grey three"></div>
+                  </div>
+                </div>
+                <div class="inner_shadow">
+                </div>
+                <div class="inner_circle" ng-class="button.mainColour">
+                  <span>{{ button.name }}</span>
                 </div>
               </div>
-              <div class="inner_shadow">
-              </div>
-              <div class="inner_circle" ng-class="button.mainColour">
-                <span>{{ button.name }}</span>
-              </div>
+            </button>
+            <span>COMING SOON!</span>
+            <div id="bet">
+              <span>YOUR BET:<br />
+              </span>
+              <span>&#163;</span><input id="bet_value" type="text" name="bet" ng-model="money.bet" ng-pattern="money.limits" required ng-disabled="money.disable" ng-change="emptyReserve()">
             </div>
-          </button>
-          <span>COMING SOON!</span>
+            <div id="reserve">
+              <span>RESERVE: </span>
+              <span>&#163;{{ money.reserve - money.bet }}</span>
+              <span>Not enough money!</span>
+            </div>
+            <div role="alert" id="bet_errors">
+              <span class="error" ng-show="player_bet.bet.$error.required || player_bet.bet.$error.pattern">
+                Min bet &#163;5, max bet &#163;100, no decimals</span>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="game_lost">
+        <div>Thank you for playing Super Awesome Blackjack!<br />
+          You have no more funds:<br />
+          Please reload the page to continue.
         </div>
       </div>
     </div>

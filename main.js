@@ -59,8 +59,6 @@ function createFullDeck() {
   var lastIndex = Math.floor(data["fullDeck"].length * 75 / 100);
   var randomIndex = Math.floor(Math.random() * (data["fullDeck"].length - lastIndex)) + lastIndex;
   data["fullDeck"].splice(randomIndex, 0, data["reshuffleCard"]); //inserts reshuffle card after 75% of the deck
-  console.log(data["fullDeck"].length);
-  console.log(randomIndex);
 }
 
 createFullDeck();
@@ -91,19 +89,12 @@ var dealer = new Component();
 
 var player = new Component();
 
-var money = {
-  reserve: 1000,
-  bet: 0
-}
-
 function dealCard(receiver) {
   if (receiver.total <= 21) {
     var card = data["fullDeck"].shift();
-    console.log(card);
     receiver["cards"].push(card);
     receiver.countTot();
     if (receiver.total > 21) {
-      console.log("Busted!");
     }
   }
 }
@@ -129,17 +120,18 @@ function firstDeal() {
   dealCard(dealer);
   dealCard(player);
 }
+
 $('#mydiv').find('input, textarea, button, select').attr('disabled','disabled');
+
 function changeStatus(array) {
   array[0].status === false ? array[0].status = true : array[0].status = false;
   array[1].status === true ? array[1].status = false : array[1].status = true;
   array[2].status === true ? array[2].status = false : array[2].status = true;
 }
-//
-// function changeStatus(array) {
-//   if (array[0].status === false) {
-//
-//   }
+
+function toggleButton(bool, button) {
+  bool === true ? button = false : button = true;
+}
 
 function divideLetters(phrase) {
   var phrase = phrase.split(""),
@@ -148,4 +140,18 @@ function divideLetters(phrase) {
     newPhrase.push("<span class='char" + i + "'>" + phrase[i] + "</span>");
   }
   return newPhrase.join("");
+}
+
+$("#bet_value").on( "change", function() {
+  console.log("value: " + $("#bet_value").value);
+});
+
+function noMoney(reserve, bet) {
+  if (reserve - bet < 0) {
+    $("#reserve span:nth-child(2)").css("display", "none");
+    $("#reserve span:nth-child(3)").css("display", "inline-block");
+  } else {
+    $("#reserve span:nth-child(2)").css("display", "inline-block");
+    $("#reserve span:nth-child(3)").css("display", "none");
+  }
 }

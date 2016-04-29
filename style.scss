@@ -179,7 +179,7 @@ a {
 }
 
 #table {
-  display: none;
+  // display: none;
   background-color: $carpet;
 }
 
@@ -324,7 +324,87 @@ a {
   height: 30vh;
 }
 
-#actions > button {
+#bet {
+  position: absolute;
+  width: 12vh;
+  top: -8vh;
+  left: 50%;
+  margin-left: -6vh;
+  text-align: center;
+}
+
+#bet > span:nth-child(1) {
+  @include user-select(none);
+  cursor: default;
+  font-size: 3.5vh;
+  line-height: 3.5vh;
+  color: white;
+}
+
+#bet > span:nth-child(2) {
+  font-size: 4.5vh;
+  line-height: 6vh;
+  color: $light_gold;
+}
+
+#bet input {
+  width: 7vh;
+  height: 7vh;
+  @include border-radius(50%);
+  font-size: 3.5vh;
+  line-height: 3.5vh;
+  color: $light_gold;
+  background: $dark_gold;
+  border: $light_gold solid .2vh;
+  text-align: center;
+}
+
+#bet input:disabled {
+  border: none;
+  background: none;
+}
+
+#bet_errors {
+  position: absolute;
+  top: 10vh;
+  width: 90vh;
+  left: 50%;
+  margin-left: -45vh;
+  font-size: 5vh;
+  line-height: 5vh;
+  color: white;
+  text-align: center;
+}
+
+.error {
+  padding: 0 2vh 0 2vh;
+  background-color: $table;
+  box-shadow: 1vh 1vh $black-shadow;
+  border: .4vh $light_gold solid;
+}
+
+#reserve {
+  position: absolute;
+  width: 50vh;
+  top: 8.5vh;
+  left: 50%;
+  margin-left: -25vh;
+  font-size: 4vh;
+  line-height: 5vh;
+  color: white;
+  text-align: center;
+}
+
+#reserve span:nth-child(1) {
+  color: $light_gold;
+}
+
+#reserve span:nth-child(3) {
+  display: none;
+  font-size: 3vh;
+}
+
+#actions > form > button {
   position: absolute;
   background: none;
   border: none;
@@ -332,42 +412,42 @@ a {
   cursor: pointer;
 }
 
-#actions > button:disabled {
+#actions > form > button:disabled {
   opacity: .5;
   cursor: default;
 }
 
 
-#actions > button > div {
+#actions > form > button > div {
   position: absolute;
   height: 12vh;
   width: 12vh;
   transition: 0.2s linear;
 }
 
-#actions > button > div:hover {
+#actions > form > button > div:hover {
   box-shadow: .5vh 1vh $black-shadow;
 }
 
-#actions > button .inner_circle {
+#actions button .inner_circle {
   padding-top: 2.65vh;
 }
 
-#actions > button:nth-child(6) .inner_circle {
+#actions button:nth-child(6) .inner_circle {
   padding-top: 3vh;
 }
 
-#actions > button .inner_circle span {
+#actions button .inner_circle span {
   color: white;
   font-size: 2.4vh;
   font-weight: 600;
 }
 
-#actions > button:nth-child(6) .inner_circle span {
+#actions button:nth-child(6) .inner_circle span {
   font-size: 1.5vh;
 }
 
-#actions > span {
+#actions > form > span {
   position: absolute;
   font-size: 6vh;
   font-weight: 500;
@@ -480,7 +560,7 @@ a {
 #communications {
   display: none;
   position: absolute;
-  width: 100vh;
+  width: 104vh;
   height: auto;
   font-size: 10vh;
   line-height: 7vh;
@@ -488,11 +568,33 @@ a {
   text-align: center;
   top: 28vh;
   left: 50%;
-  margin-left: -50vh;
+  margin-left: -52vh;
 }
 
 #communications span {
+  padding: 0 2vh 0 2vh;
   background-color: $table;
   border: .5vh $light_gold solid;
   box-shadow: 1vh 1vh $black-shadow;
+}
+
+#game_lost {
+  display: none;
+  position: absolute;
+  width: 90vw;
+  height: 90vh;
+  top: 5vh;
+  left: 50%;
+  margin-left: -45vw;
+  text-align: center;
+  font-size: 7vh;
+  line-height: 9vh;
+  background-color: $table;
+  border: 1vh solid $light_gold;
+  color: white;
+}
+
+#game_lost div {
+  @include vertical-align();
+  padding: 2vh;
 }

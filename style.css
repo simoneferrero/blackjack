@@ -609,7 +609,6 @@ a {
   box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4); }
 
 #table {
-  display: none;
   background-color: #5a0000; }
 
 .wrapper {
@@ -1218,41 +1217,119 @@ a {
   width: 100vh;
   height: 30vh; }
 
-#actions > button {
+#bet {
+  position: absolute;
+  width: 12vh;
+  top: -8vh;
+  left: 50%;
+  margin-left: -6vh;
+  text-align: center; }
+
+#bet > span:nth-child(1) {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+  font-size: 3.5vh;
+  line-height: 3.5vh;
+  color: white; }
+
+#bet > span:nth-child(2) {
+  font-size: 4.5vh;
+  line-height: 6vh;
+  color: #d4af37; }
+
+#bet input {
+  width: 7vh;
+  height: 7vh;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 3.5vh;
+  line-height: 3.5vh;
+  color: #d4af37;
+  background: #996515;
+  border: #d4af37 solid 0.2vh;
+  text-align: center; }
+
+#bet input:disabled {
+  border: none;
+  background: none; }
+
+#bet_errors {
+  position: absolute;
+  top: 10vh;
+  width: 90vh;
+  left: 50%;
+  margin-left: -45vh;
+  font-size: 5vh;
+  line-height: 5vh;
+  color: white;
+  text-align: center; }
+
+.error {
+  padding: 0 2vh 0 2vh;
+  background-color: #256339;
+  box-shadow: 1vh 1vh rgba(0, 0, 0, 0.4);
+  border: 0.4vh #d4af37 solid; }
+
+#reserve {
+  position: absolute;
+  width: 50vh;
+  top: 8.5vh;
+  left: 50%;
+  margin-left: -25vh;
+  font-size: 4vh;
+  line-height: 5vh;
+  color: white;
+  text-align: center; }
+
+#reserve span:nth-child(1) {
+  color: #d4af37; }
+
+#reserve span:nth-child(3) {
+  display: none;
+  font-size: 3vh; }
+
+#actions > form > button {
   position: absolute;
   background: none;
   border: none;
   transition: 0.5s linear;
   cursor: pointer; }
 
-#actions > button:disabled {
+#actions > form > button:disabled {
   opacity: .5;
   cursor: default; }
 
-#actions > button > div {
+#actions > form > button > div {
   position: absolute;
   height: 12vh;
   width: 12vh;
   transition: 0.2s linear; }
 
-#actions > button > div:hover {
+#actions > form > button > div:hover {
   box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4); }
 
-#actions > button .inner_circle {
+#actions button .inner_circle {
   padding-top: 2.65vh; }
 
-#actions > button:nth-child(6) .inner_circle {
+#actions button:nth-child(6) .inner_circle {
   padding-top: 3vh; }
 
-#actions > button .inner_circle span {
+#actions button .inner_circle span {
   color: white;
   font-size: 2.4vh;
   font-weight: 600; }
 
-#actions > button:nth-child(6) .inner_circle span {
+#actions button:nth-child(6) .inner_circle span {
   font-size: 1.5vh; }
 
-#actions > span {
+#actions > form > span {
   position: absolute;
   font-size: 6vh;
   font-weight: 500;
@@ -1378,7 +1455,7 @@ a {
 #communications {
   display: none;
   position: absolute;
-  width: 100vh;
+  width: 104vh;
   height: auto;
   font-size: 10vh;
   line-height: 7vh;
@@ -1386,11 +1463,35 @@ a {
   text-align: center;
   top: 28vh;
   left: 50%;
-  margin-left: -50vh; }
+  margin-left: -52vh; }
 
 #communications span {
+  padding: 0 2vh 0 2vh;
   background-color: #256339;
   border: 0.5vh #d4af37 solid;
   box-shadow: 1vh 1vh rgba(0, 0, 0, 0.4); }
+
+#game_lost {
+  display: none;
+  position: absolute;
+  width: 90vw;
+  height: 90vh;
+  top: 5vh;
+  left: 50%;
+  margin-left: -45vw;
+  text-align: center;
+  font-size: 7vh;
+  line-height: 9vh;
+  background-color: #256339;
+  border: 1vh solid #d4af37;
+  color: white; }
+
+#game_lost div {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding: 2vh; }
 
 /*# sourceMappingURL=style.css.map */
