@@ -1233,13 +1233,13 @@ a {
   -o-user-select: none;
   user-select: none;
   cursor: default;
-  font-size: 3.5vh;
-  line-height: 3.5vh;
+  font-size: 2vh;
+  line-height: 2vh;
   color: white; }
 
 #bet > span:nth-child(2) {
   font-size: 4.5vh;
-  line-height: 6vh;
+  line-height: 8vh;
   color: #d4af37; }
 
 #bet input {
@@ -1300,8 +1300,40 @@ a {
   position: absolute;
   background: none;
   border: none;
-  transition: 0.5s linear;
+  transition: 0.3s linear;
   cursor: pointer; }
+
+#actions > form > button:hover {
+  box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4); }
+
+#deal, #clear, #hit, #stand, #double, #split, #surrender {
+  top: 2vh;
+  height: 12vh;
+  width: 12vh;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%; }
+
+#hit {
+  top: 10vh;
+  left: 17.6vh; }
+
+#stand {
+  top: 15vh;
+  left: 35.2vh; }
+
+#double {
+  top: 15vh;
+  left: 52.8vh; }
+
+#split {
+  top: 10vh;
+  left: 70.4vh; }
+
+#surrender {
+  left: 88vh; }
 
 #actions > form > button:disabled {
   opacity: .5;
@@ -1312,9 +1344,6 @@ a {
   height: 12vh;
   width: 12vh;
   transition: 0.2s linear; }
-
-#actions > form > button > div:hover {
-  box-shadow: 0.5vh 1vh rgba(0, 0, 0, 0.4); }
 
 #actions button .inner_circle {
   padding-top: 2.65vh; }
@@ -1359,7 +1388,7 @@ a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
-  top: 8vh;
+  top: 6vh;
   left: 0vh; }
 
 .blue {
@@ -1376,8 +1405,7 @@ a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
-  top: 16vh;
-  left: 17.6vh; }
+  top: 6vh; }
 
 .red {
   background: #c10c0e; }
@@ -1393,8 +1421,7 @@ a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
-  top: 20.8vh;
-  left: 35.2vh; }
+  top: 6vh; }
 
 .purple_radiant {
   background: radial-gradient(circle, transparent 0%, transparent 50%, #762072 50%); }
@@ -1410,8 +1437,7 @@ a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
-  top: 20.8vh;
-  left: 52.8vh; }
+  top: 6vh; }
 
 .orange_radiant {
   background: radial-gradient(circle, transparent 0%, transparent 50%, #fa713a 50%); }
@@ -1427,8 +1453,7 @@ a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
-  top: 16vh;
-  left: 70.4vh; }
+  top: 6vh; }
 
 .brown_radiant {
   background: radial-gradient(circle, transparent 0%, transparent 50%, #610005 50%); }
@@ -1444,8 +1469,7 @@ a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
-  top: 8vh;
-  left: 88vh; }
+  top: 6vh; }
 
 .black_radiant {
   background: radial-gradient(circle, transparent 0%, transparent 50%, black 50%); }

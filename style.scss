@@ -336,20 +336,22 @@ a {
 #bet > span:nth-child(1) {
   @include user-select(none);
   cursor: default;
-  font-size: 3.5vh;
-  line-height: 3.5vh;
+  font-size: 2vh;
+  line-height: 2vh;
   color: white;
 }
 
 #bet > span:nth-child(2) {
   font-size: 4.5vh;
-  line-height: 6vh;
+  line-height: 8vh;
   color: $light_gold;
 }
 
 #bet input {
   width: 7vh;
   height: 7vh;
+  // width: 17%;
+  // height: 7%;
   @include border-radius(50%);
   font-size: 3.5vh;
   line-height: 3.5vh;
@@ -408,8 +410,43 @@ a {
   position: absolute;
   background: none;
   border: none;
-  transition: 0.5s linear;
+  transition: 0.3s linear;
   cursor: pointer;
+}
+
+#actions > form > button:hover {
+  box-shadow: .5vh 1vh $black-shadow;
+}
+
+#deal, #clear, #hit, #stand, #double, #split, #surrender {
+  top: 2vh;
+  height: 12vh;
+  width: 12vh;
+  @include border-radius(50%);
+}
+
+#hit {
+  top: 10vh;
+  left: 17.6vh * 1;
+}
+
+#stand {
+  top: 15vh;
+  left: 17.6vh * 2;
+}
+
+#double {
+  top: 15vh;
+  left: 17.6vh * 3;
+}
+
+#split {
+  top: 10vh;
+  left: 17.6vh * 4;
+}
+
+#surrender {
+  left: 17.6vh * 5;
 }
 
 #actions > form > button:disabled {
@@ -425,9 +462,9 @@ a {
   transition: 0.2s linear;
 }
 
-#actions > form > button > div:hover {
-  box-shadow: .5vh 1vh $black-shadow;
-}
+// #actions > form > button > div:hover {
+//   box-shadow: .5vh 1vh $black-shadow;
+// }
 
 #actions button .inner_circle {
   padding-top: 2.65vh;
@@ -465,7 +502,7 @@ a {
   background: $chip_bluer;
   @include vertical-align();
   overflow: hidden;
-  top: 8vh;
+  top: 6vh;
   left: 17.6vh * 0;
 }
 
@@ -481,8 +518,7 @@ a {
   background: $chip_redder;
   @include vertical-align();
   overflow: hidden;
-  top: 8vh * 2;
-  left: 17.6vh * 1;
+  top: 6vh;
 }
 
 .red {
@@ -497,8 +533,7 @@ a {
   background: $chip_purpler;
   @include vertical-align();
   overflow: hidden;
-  top: 8vh * 2.6;
-  left: 17.6vh * 2;
+  top: 6vh;
 }
 
 .purple_radiant {
@@ -513,8 +548,7 @@ a {
   background: $chip_oranger;
   @include vertical-align();
   overflow: hidden;
-  top: 8vh * 2.6;
-  left: 17.6vh * 3;
+  top: 6vh;
 }
 
 .orange_radiant {
@@ -529,8 +563,7 @@ a {
   background: $chip_browner;
   @include vertical-align();
   overflow: hidden;
-  top: 8vh * 2;
-  left: 17.6vh * 4;
+  top: 6vh;
 }
 
 .brown_radiant {
@@ -545,8 +578,7 @@ a {
   background: $chip_black;
   @include vertical-align();
   overflow: hidden;
-  top: 8vh;
-  left: 17.6vh * 5;
+  top: 6vh;
 }
 
 .black_radiant {
