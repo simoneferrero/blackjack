@@ -1477,8 +1477,7 @@ a {
 .black {
   background: black; }
 
-#communications {
-  display: none;
+.comms {
   position: absolute;
   width: 104vh;
   height: auto;
@@ -1490,7 +1489,13 @@ a {
   left: 50%;
   margin-left: -52vh; }
 
-#communications span {
+#communications {
+  display: none; }
+
+#reshuffle {
+  display: none; }
+
+.comms span {
   padding: 0 2vh 0 2vh;
   background-color: #256339;
   border: 0.5vh #d4af37 solid;

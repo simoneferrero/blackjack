@@ -17,7 +17,6 @@ app.controller('Table', ['$scope', function($scope) {
   $scope.title = `<span>SUPER</span> <span>AWESOME</span><br /><span><span>B</span><span>L</span><span>A</span><span>C</span><span>K</span><span>J</span><span>A</span><span>C</span><span>K</span>`;
   $scope.blackjack = `<span>PAYS 3 TO 2</span>`;
   $scope.insurance =  divideLetters("PAYS 2TO1 - INSURANCE - PAYS 2TO1");
-// `<span>PAYS 2 TO 1 - INSURANCE - PAYS 2 TO 1</span>`;
 }]);
 
 app.controller('Dealer', ['$scope', function($scope) {
@@ -32,24 +31,32 @@ app.controller('Player', ['$scope', function($scope) {
 
 app.controller('Actions', ['$scope', function($scope) {
   $scope.buttons = [
-    {name: "Deal", id:"deal", status: false, baseColour: "blue_darker", mainColour: "blue", radiantColour: "blue_radiant"},
-    {name: "Hit", id:"hit", status: true, baseColour: "red_darker", mainColour: "red", radiantColour: "red_radiant"},
-    {name: "Stand", id:"stand", status: true, baseColour: "purple_darker", mainColour: "purple", radiantColour: "purple_radiant"},
-    {name: "Double", id:"double", status: true, baseColour: "orange_darker", mainColour: "orange", radiantColour: "orange_radiant"},
-    {name: "Split", id:"split", status: true, baseColour: "brown_darker", mainColour: "brown", radiantColour: "brown_radiant"},
-    {name: "Surrender", id:"surrender", status: true, baseColour: "black_darker", mainColour: "black", radiantColour: "black_radiant"}
+    new Button("Deal", "deal", false, "blue_darker", "blue", "blue_radiant"),
+    new Button("Hit", "hit", true, "red_darker", "red", "red_radiant"),
+    new Button("Stand", "stand", true, "purple_darker", "purple", "purple_radiant"),
+    new Button("Double", "double", true, "orange_darker", "orange", "orange_radiant"),
+    new Button("Split", "split", true, "brown_darker", "brown", "brown_radiant"),
+    new Button("Surrender", "surrender", true, "black_darker", "black", "black_radiant")
   ];
   $scope.money = {
-    reserve: 1000,
-    buffer: 0,
-    bet: 5,
-    disable: false,
+    reserve: 1000,//initial player money
+    bet: 5,//suggested player bet
+    disable: false,//used to enable or disable bet field
     // limits: /^([5-9]|[1-9]\d|100){1}(\.[0-9]{1,2})?$/ //aggiustare per togliere decimali a 100
     limits: /^([5-9]|[1-9]\d|100)$/, //no decimals
     wins: 0,
     losses: 0,
     ties: 0,
+    surrenders: 0,
     blackjacks: 0
+  };
+  $scope.logGame = function() {
+    var money = $scope["money"];
+    console.log(`Wins: ${money.wins}
+Losses: ${money.losses}
+Ties: ${money.ties}
+Surrenders: ${money.surrenders}
+BlackJacks: ${money.blackjacks}`);
   };
   $scope.emptyReserve = function() {
     return noMoney($scope["money"].reserve, $scope["money"].bet);
@@ -57,93 +64,114 @@ app.controller('Actions', ['$scope', function($scope) {
   $scope.actions = function(button) {
     var buttons = $scope["buttons"],
       money = $scope["money"];
-    if (button === "Deal") {
-      changeStatus(buttons);
-      money.disable = true;
-      money.buffer = money.bet;
+    if (button === "Deal" && buttons[0].active === true) {
+      changeStatus(buttons);//deactivates this button and activates others
+      money.disable = true;//locks bet input
       firstDeal();
-      buttons[0].name = "Clear";
-      if (player.total === 21) {
+      if (data["reshuffle"] === true) {//changes button name
+        buttons[0].name = "Shuffle";
+      } else {
+        buttons[0].name = "Clear";
+      }
+      if (player.total === 21) {//in case of blackjack
         $("#communications")
           .fadeIn(200);
         data["communications"] = "Blackjack!";
-        money.blackjacks++;
+        money.blackjacks++;//for statistics
       }
     } else if (button === "Clear") {
+      cleanTable();//removes all cards
       $("#communications")
         .fadeOut(200, function() {
-          data["communications"] = "";
-          $("#bet input")
+          data["communications"] = "";//resets communications
+          $("#bet input")//gives focus to bet input
             .focus()
             .select();
         });
-        cleanTable();
-        money.disable = false;
-        buttons[0].name = "Deal";
+        money.disable = false;//reenables bet input
+        buttons[0].name = "Deal";//returns to original name
+    } else if (button === "Shuffle") {
+      setTimeout(function() {
+        buttons[0].active = true;//reenable button after shuffling because of stupid Angular
+      }, 1400);
+      buttons[0].active = false; //disable button while shuffling because of stupid Angular
+      data["reshuffle"] = false;//prevents name from changing to reshuffle again
+      createFullDeck();//reshuffles deck
+      cleanTable();//same as clear
+      buttons[0].name = "Deal";//same as clear
+      money.disable = false;//same as clear
+      $("#bet input")//same as clear
+        .focus()
+        .select();
+      $("#communications")
+        .fadeOut(200, function() {
+          data["communications"] = "";
+          $("#reshuffle")
+            .fadeIn(200)
+            .delay(1000)
+            .fadeOut(200);
+        });
     } else if (button === "Hit") {
       dealCard(player);
+      if (data["reshuffle"] === true) {
+        buttons[0].name = "Shuffle";//same as deal
+      }
       if (player.total > 21) {
         $("#communications")
           .fadeIn(200);
         data["communications"] = "Busted! You lose!";
-        money.reserve -= money.buffer;
+        money.reserve -= money.bet;//takes money from reserve
         money.losses++;
         changeStatus(buttons);
         if (money.reserve < 5) {
-          console.log("no more money");
-          $("#game_lost")
+          $("#game_lost")//ends game
             .fadeIn(200);
         }
-        console.log(`Wins: ${money.wins}
-Losses: ${money.losses}
-Ties: ${money.ties}
-BlackJacks: ${money.blackjacks}`);
-      } else {
-        data["communications"] = "";
+        $scope.logGame();
       }
     } else if (button === "Stand") {
       dealToDealer();
-      // buttons[0].status = false;
-      // buttons[1].status = true;
-      // buttons[2].status = true;
+      if (data["reshuffle"] === true) {
+        buttons[0].name = "Shuffle";
+      }
       $("#communications")
         .fadeIn(200);
-      if (dealer.total > 21) {
+      //if dealer busted and player doesn't have blackjack
+      if (dealer.total > 21 && (player.total != 21 || player["cards"].length != 2)) {
         data["communications"] = "Dealer busted! You win!";
-        money.reserve += Number(money.buffer);
+        money.reserve += Number(money.bet);
         money.wins++;
-      } else if (player.total === 21 && player.total === dealer.total && player["cards"].length === 2 && dealer["cards"].length > 2) {
+      }
+      //if player has blackjack and dealer doesn't
+      else if ((player.total === 21 && player["cards"].length === 2) && (dealer.total != 21 || dealer["cards"].length != 2)) {
         data["communications"] = "You win!";
-        console.log("blackjack");
-        money.reserve += (Number(money.buffer) * 1.5);
+        money.reserve += (Number(money.bet) * 1.5);
         money.wins++;
-      } else if (player.total > dealer.total && player.total === 21 && player["cards"].length === 2) {
+      }
+      //if player higher than dealer
+      else if (player.total > dealer.total) {
         data["communications"] = "You win!";
-        console.log("blackjack");
-        money.reserve += (Number(money.buffer) * 1.5);
+        money.reserve += Number(money.bet);
         money.wins++;
-      } else if (player.total > dealer.total) {
-        data["communications"] = "You win!";
-        money.reserve += Number(money.buffer);
-        money.wins++;
-      } else if (dealer.total > player.total || (player.total === 21 && player.total === dealer.total && dealer["cards"].length === 2 && player["cards"].length > 2)){
+      }
+      //if dealer higher than player or dealer has blackjack and player doesn't
+      else if (dealer.total > player.total || (dealer.total === 21 && dealer["cards"].length === 2) && (player.total != 21 || player["cards"].length != 2)){
         data["communications"] = "You lose!";
-        money.reserve -= money.buffer;
+        money.reserve -= money.bet;
         money.losses++;
         if (money.reserve < 5) {
           console.log("no more money");
           $("#game_lost")
             .fadeIn(200);
         }
-      } else {
+      }
+      //if push
+      else {
         data["communications"] = "It's a tie!";
         money.ties++;
       }
       changeStatus(buttons);
-      console.log(`Wins: ${money.wins}
-Losses: ${money.losses}
-Ties: ${money.ties}
-BlackJacks: ${money.blackjacks}`);
+      $scope.logGame();
     }
   }
 }]);

@@ -106,12 +106,15 @@
           <div class="card" ng-repeat="card in cards"><img ng-src="{{ card.image }}" /></div>
           <div class="total"><span>Player:</span> {{ user.total }}</div>
         </div>
-        <div id="communications" ng-controller="Communications">
+        <div id="communications" class="comms" ng-controller="Communications">
           <span>{{ data.communications }}</span>
+        </div>
+        <div id="reshuffle" class="comms">
+          <span>Reshuffling...</span>
         </div>
         <div id="actions" ng-controller="Actions">
           <form name="player_bet">
-            <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status || player_bet.$invalid || (money.reserve - money.bet < 0)" id="{{ button.id }}">
+            <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status || player_bet.$invalid || (money.reserve - money.bet < 0) || data['buttons']" id="{{ button.id }}">
               <div class="chip" ng-class="button.baseColour">
                 <div class="stripes">
                   <div class="stripe light_grey zero_degrees"></div>

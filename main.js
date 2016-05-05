@@ -5,12 +5,24 @@ function Card(name, value, image, deck) {
   this.value = value;
   this.image = image;
   this.deck = deck;
+  this.upside = false; //if false, value = 0 and image = back
+}
+
+function Button(name, id, status, baseColour, mainColour, radiantColour) {
+  this.name = name;
+  this.id = id;
+  this.status = status;
+  this.active = true;
+  this.baseColour = baseColour;
+  this.mainColour = mainColour;
+  this.radiantColour = radiantColour;
 }
 
 var data = {
   baseDeck: [],
   fullDeck: [],
   reshuffleCard: new Card("Reshuffle", 0, "cards/reshuffle.png"),
+  reshuffle: false,
   back: new Card("Back", 0, "cards/back.png"),
   communications: ""
 }
@@ -23,6 +35,14 @@ function shuffle(deck) {
     deck[i - 1] = deck[randomIndex]; //changes current element with random
     deck[randomIndex] = currentCard; //changes random element with current
   }
+  for (var i = 0; i <= 5; i++) {
+    deck.shift(); //removes first 5 cards from beginning of deck
+  }
+  var lastIndex = Math.floor(deck.length * 75 / 100);//selects index at 75% of deck
+  var randomIndex = Math.floor(Math.random() * (deck.length - lastIndex)) + lastIndex;//picks random index after 75%
+  // var lastIndex = Math.floor(deck.length * 25 / 100);//for quicker testing
+  // var randomIndex = lastIndex;//for quicker testing
+  deck.splice(randomIndex, 0, data["reshuffleCard"]); //inserts reshuffle card at random index
 }
 
 function createBaseDeck(deck) {
@@ -48,17 +68,12 @@ function createBaseDeck(deck) {
 function createFullDeck() {
   var tempArray = [];
   for (var i = 0; i < 6; i++) {
+  // for (var i = 0; i < 1; i++) {//for quicker testing
     createBaseDeck(i);
     tempArray.push(data["baseDeck"]);
   }
   data["fullDeck"] = [].concat.apply([], tempArray); //merges 6 decks together
   shuffle(data["fullDeck"]); //shuffles all cards
-  for (var i = 0; i <= 4; i++) {
-    data["fullDeck"].shift(); //removes first 5 cards from beginning of deck
-  }
-  var lastIndex = Math.floor(data["fullDeck"].length * 75 / 100);
-  var randomIndex = Math.floor(Math.random() * (data["fullDeck"].length - lastIndex)) + lastIndex;
-  data["fullDeck"].splice(randomIndex, 0, data["reshuffleCard"]); //inserts reshuffle card after 75% of the deck
 }
 
 createFullDeck();
@@ -66,11 +81,11 @@ createFullDeck();
 function Component() {
   this.cards = [];
   this.total = 0;
-  this.countTot = function() {
+  this.countTot = function() {//called by dealCard()
     var cards = this.cards;
-    this.total = 0;
+    this.total = 0;//resets total
     for (var i = 0; i < cards.length; i++) {
-      this.total += cards[i].value;
+      this.total += cards[i].value;//adds value of card to total for each of cards
     }
     if (this.total > 21) {
       for (var i = 0; i < cards.length; i++) {
@@ -90,38 +105,41 @@ var dealer = new Component();
 var player = new Component();
 
 function dealCard(receiver) {
-  if (receiver.total <= 21) {
-    var card = data["fullDeck"].shift();
-    receiver["cards"].push(card);
-    receiver.countTot();
-    if (receiver.total > 21) {
+  if (receiver.total <= 21) {//doesn't work if busted
+    var card = data["fullDeck"].shift();//draws card from deck
+    if (card.name === "Reshuffle") {
+      data["reshuffle"] = true;//used to change button
+      card = data["fullDeck"].shift();//draws new card
     }
+    receiver["cards"].push(card);//pushes card in hand
+    receiver.countTot();//calls for sum of value
   }
 }
 
 function dealToDealer() {
   if (dealer.total < 17) {
     dealCard(dealer);
-    dealToDealer();
+    dealToDealer();//recursive until total is >=17
   }
 }
 
 function removeCards(whose) {
-  whose["cards"].length = 0;
-  whose["total"] = 0;
+  whose["cards"].length = 0;//empties array
+  whose["total"] = 0;//resets total
 }
 
 function cleanTable() {
   removeCards(dealer);
   removeCards(player);
 }
+
 function firstDeal() {
   dealCard(player);
   dealCard(dealer);
   dealCard(player);
+  //eventually deal one more facedown card to dealer
 }
 
-$('#mydiv').find('input, textarea, button, select').attr('disabled','disabled');
 
 function changeStatus(array) {
   array[0].status === false ? array[0].status = true : array[0].status = false;
@@ -129,25 +147,17 @@ function changeStatus(array) {
   array[2].status === true ? array[2].status = false : array[2].status = true;
 }
 
-function toggleButton(bool, button) {
-  bool === true ? button = false : button = true;
-}
-
 function divideLetters(phrase) {
-  var phrase = phrase.split(""),
+  var phrase = phrase.split(""),//separates phrase characters
     newPhrase = [];
   for (var i = 0; i < phrase.length; i++) {
-    newPhrase.push("<span class='char" + i + "'>" + phrase[i] + "</span>");
+    newPhrase.push("<span class='char" + i + "'>" + phrase[i] + "</span>");//encases each character in span and gives unique class
   }
-  return newPhrase.join("");
+  return newPhrase.join("");//reforms phrase
 }
 
-$("#bet_value").on( "change", function() {
-  console.log("value: " + $("#bet_value").value);
-});
-
 function noMoney(reserve, bet) {
-  if (reserve - bet < 0) {
+  if (reserve - bet < 0) {//displays banner if money is not enough to bet, called by controller
     $("#reserve span:nth-child(2)").css("display", "none");
     $("#reserve span:nth-child(3)").css("display", "inline-block");
   } else {
