@@ -295,6 +295,14 @@ a {
   width: auto;
 }
 
+#dealer > .card {
+  z-index: 800;
+}
+
+.facedown {
+  z-index: 10 !important;
+}
+
 .total {
   position: absolute;
   left: -12vh;
@@ -461,10 +469,6 @@ a {
   transition: 0.2s linear;
 }
 
-// #actions > form > button > div:hover {
-//   box-shadow: .5vh 1vh $black-shadow;
-// }
-
 #actions button .inner_circle {
   padding-top: 2.65vh;
 }
@@ -603,6 +607,7 @@ a {
 
 #communications {
   display: none;
+  z-index: 900;
 }
 
 #reshuffle {

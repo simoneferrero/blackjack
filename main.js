@@ -5,7 +5,6 @@ function Card(name, value, image, deck) {
   this.value = value;
   this.image = image;
   this.deck = deck;
-  this.upside = false; //if false, value = 0 and image = back
 }
 
 function Button(name, id, status, baseColour, mainColour, radiantColour) {
@@ -23,7 +22,7 @@ var data = {
   fullDeck: [],
   reshuffleCard: new Card("Reshuffle", 0, "cards/reshuffle.png"),
   reshuffle: false,
-  back: new Card("Back", 0, "cards/back.png"),
+  back: new Card("Back", 0, "cards/back.png", 0),
   communications: ""
 }
 
@@ -98,6 +97,7 @@ function Component() {
     }
     return this.total;
   };
+  this.storedCard = {};
 }
 
 var dealer = new Component();
@@ -123,6 +123,11 @@ function dealToDealer() {
   }
 }
 
+function uncoverCard() {
+  dealer.cards[1] = dealer.storedCard;//reveals second dealer card
+  dealer.countTot();//updates dealer total
+}
+
 function removeCards(whose) {
   whose["cards"].length = 0;//empties array
   whose["total"] = 0;//resets total
@@ -137,6 +142,7 @@ function firstDeal() {
   dealCard(player);
   dealCard(dealer);
   dealCard(player);
+  dealCard(dealer);
   //eventually deal one more facedown card to dealer
 }
 
@@ -145,6 +151,7 @@ function changeStatus(array) {
   array[0].status === false ? array[0].status = true : array[0].status = false;
   array[1].status === true ? array[1].status = false : array[1].status = true;
   array[2].status === true ? array[2].status = false : array[2].status = true;
+  // array[5].status === true ? array[5].status = false : array[5].status = true;
 }
 
 function divideLetters(phrase) {

@@ -68,16 +68,43 @@ BlackJacks: ${money.blackjacks}`);
       changeStatus(buttons);//deactivates this button and activates others
       money.disable = true;//locks bet input
       firstDeal();
+      if (player.total === 21 || dealer.total === 21) {//checks if anyone has blackjack
+        $("#communications")
+          .fadeIn(200);
+        if (player.total === 21 && dealer.total === 21) {
+          data["communications"] = "It's a tie!";
+          money.ties++;
+          money.blackjacks++;
+        } else if (player.total === 21 && dealer.total != 21) {
+          data["communications"] = "Blackjack! You win!";
+          money.reserve += (Number(money.bet) * 1.5);
+          money.blackjacks++;
+          money.wins++;
+        } else if (player.total != 21 && dealer.total === 21) {
+          data["communications"] = "You lose!";
+          money.reserve -= money.bet;
+          money.losses++;
+          if (money.reserve < 5) {
+            console.log("no more money");
+            $("#game_lost")
+              .fadeIn(200);
+          }
+        }
+        changeStatus(buttons);
+        $scope.logGame();
+      } else {//if nobody has blackjack, changes the second card of the dealer to a back with 0 value
+        dealer.storedCard = dealer.cards[1];
+        dealer.cards[1] = data.back;
+        dealer.countTot();
+        setTimeout(function() {
+          $("#dealer > .card:nth-child(2)")
+            .addClass("facedown");
+        }, 1);
+      }
       if (data["reshuffle"] === true) {//changes button name
         buttons[0].name = "Shuffle";
       } else {
         buttons[0].name = "Clear";
-      }
-      if (player.total === 21) {//in case of blackjack
-        $("#communications")
-          .fadeIn(200);
-        data["communications"] = "Blackjack!";
-        money.blackjacks++;//for statistics
       }
     } else if (button === "Clear") {
       cleanTable();//removes all cards
@@ -120,42 +147,35 @@ BlackJacks: ${money.blackjacks}`);
         $("#communications")
           .fadeIn(200);
         data["communications"] = "Busted! You lose!";
+        $("#dealer > .card:nth-child(2)")
+          .css("z-index", 800);
+        uncoverCard();
         money.reserve -= money.bet;//takes money from reserve
         money.losses++;
         changeStatus(buttons);
+        $scope.logGame();
         if (money.reserve < 5) {
           $("#game_lost")//ends game
             .fadeIn(200);
         }
-        $scope.logGame();
       }
     } else if (button === "Stand") {
-      dealToDealer();
+      uncoverCard();
+      dealToDealer();//it will add cards only if tot is not already >=17
       if (data["reshuffle"] === true) {
         buttons[0].name = "Shuffle";
       }
       $("#communications")
         .fadeIn(200);
-      //if dealer busted and player doesn't have blackjack
-      if (dealer.total > 21 && (player.total != 21 || player["cards"].length != 2)) {
+      if (dealer.total > 21) {//if dealer busted
         data["communications"] = "Dealer busted! You win!";
         money.reserve += Number(money.bet);
         money.wins++;
-      }
-      //if player has blackjack and dealer doesn't
-      else if ((player.total === 21 && player["cards"].length === 2) && (dealer.total != 21 || dealer["cards"].length != 2)) {
-        data["communications"] = "You win!";
-        money.reserve += (Number(money.bet) * 1.5);
-        money.wins++;
-      }
-      //if player higher than dealer
-      else if (player.total > dealer.total) {
+      } else if (player.total > dealer.total) {//if player higher than dealer
         data["communications"] = "You win!";
         money.reserve += Number(money.bet);
         money.wins++;
-      }
-      //if dealer higher than player or dealer has blackjack and player doesn't
-      else if (dealer.total > player.total || (dealer.total === 21 && dealer["cards"].length === 2) && (player.total != 21 || player["cards"].length != 2)){
+      } else if (player.total < dealer.total) {//if dealer higher than player
         data["communications"] = "You lose!";
         money.reserve -= money.bet;
         money.losses++;
@@ -164,9 +184,7 @@ BlackJacks: ${money.blackjacks}`);
           $("#game_lost")
             .fadeIn(200);
         }
-      }
-      //if push
-      else {
+      } else {//if push
         data["communications"] = "It's a tie!";
         money.ties++;
       }

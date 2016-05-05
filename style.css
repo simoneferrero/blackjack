@@ -1194,6 +1194,12 @@ a {
   height: 20vh;
   width: auto; }
 
+#dealer > .card {
+  z-index: 800; }
+
+.facedown {
+  z-index: 10 !important; }
+
 .total {
   position: absolute;
   left: -12vh;
@@ -1490,7 +1496,8 @@ a {
   margin-left: -52vh; }
 
 #communications {
-  display: none; }
+  display: none;
+  z-index: 900; }
 
 #reshuffle {
   display: none; }
