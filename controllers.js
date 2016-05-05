@@ -95,11 +95,15 @@ BlackJacks: ${money.blackjacks}`);
       } else {//if nobody has blackjack, changes the second card of the dealer to a back with 0 value
         dealer.storedCard = dealer.cards[1];
         dealer.cards[1] = data.back;
+        if (dealer.cards[0].value === 1) {
+          dealer.cards[0].value = 11;//changes value of Ace back to 11 to not give up the other card
+        }
         dealer.countTot();
         setTimeout(function() {
           $("#dealer > .card:nth-child(2)")
             .addClass("facedown");
         }, 1);
+        enableButton(buttons[5]);
       }
       if (data["reshuffle"] === true) {//changes button name
         buttons[0].name = "Shuffle";
@@ -139,6 +143,7 @@ BlackJacks: ${money.blackjacks}`);
             .fadeOut(200);
         });
     } else if (button === "Hit") {
+      disableButton(buttons[5]);
       dealCard(player);
       if (data["reshuffle"] === true) {
         buttons[0].name = "Shuffle";//same as deal
@@ -147,8 +152,6 @@ BlackJacks: ${money.blackjacks}`);
         $("#communications")
           .fadeIn(200);
         data["communications"] = "Busted! You lose!";
-        $("#dealer > .card:nth-child(2)")
-          .css("z-index", 800);
         uncoverCard();
         money.reserve -= money.bet;//takes money from reserve
         money.losses++;
@@ -160,6 +163,7 @@ BlackJacks: ${money.blackjacks}`);
         }
       }
     } else if (button === "Stand") {
+      disableButton(buttons[5]);
       uncoverCard();
       dealToDealer();//it will add cards only if tot is not already >=17
       if (data["reshuffle"] === true) {
@@ -189,6 +193,16 @@ BlackJacks: ${money.blackjacks}`);
         money.ties++;
       }
       changeStatus(buttons);
+      $scope.logGame();
+    } else if (button === "Surrender") {
+      $("#communications")
+        .fadeIn(200);
+      data["communications"] = "You surrender!";
+      uncoverCard();
+      money.reserve -= (Number(money.bet) * 0.5);
+      money.surrenders++;
+      changeStatus(buttons);
+      disableButton(buttons[5]);
       $scope.logGame();
     }
   }

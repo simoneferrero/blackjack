@@ -489,14 +489,14 @@ a {
 
 #actions > form > span {
   position: absolute;
-  font-size: 6vh;
+  font-size: 5vh;
   font-weight: 500;
   color: $light-gold;
-  top: 14vh;
-  right: 1vh;
+  top: 17.5vh;
+  right: 14vh;
   height: 0;
   text-shadow: .2vh .5vh $black-shadow;
-  @include rotate(-20deg);
+  @include rotate(-17deg);
   @include user-select(none);
   cursor: default;
 }

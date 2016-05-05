@@ -151,7 +151,14 @@ function changeStatus(array) {
   array[0].status === false ? array[0].status = true : array[0].status = false;
   array[1].status === true ? array[1].status = false : array[1].status = true;
   array[2].status === true ? array[2].status = false : array[2].status = true;
-  // array[5].status === true ? array[5].status = false : array[5].status = true;
+}
+
+function enableButton(button) {
+  button.status = false;
+}
+
+function disableButton(button) {
+  button.status = true;
 }
 
 function divideLetters(phrase) {
