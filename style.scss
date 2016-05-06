@@ -263,7 +263,7 @@ a {
 }
 
 #player {
-  top: 36vh;
+  top: 37vh;
   margin-left: -12vh;
 }
 
@@ -301,6 +301,12 @@ a {
 
 .facedown {
   z-index: 10 !important;
+}
+
+.doubledown {
+  @include rotate(90deg);
+  margin-top: -10%!important;
+  margin-left: 24%!important;
 }
 
 .total {
@@ -470,7 +476,7 @@ a {
 }
 
 #actions button .inner_circle {
-  padding-top: 2.65vh;
+  padding-top: 2.9vh;
 }
 
 #actions button:nth-child(6) .inner_circle {
@@ -479,7 +485,7 @@ a {
 
 #actions button .inner_circle span {
   color: white;
-  font-size: 2.4vh;
+  font-size: 2vh;
   font-weight: 600;
 }
 
@@ -489,16 +495,17 @@ a {
 
 #actions > form > span {
   position: absolute;
-  font-size: 5vh;
+  font-size: 4vh;
+  line-height: 4vh;
   font-weight: 500;
   color: $light-gold;
-  top: 17.5vh;
-  right: 14vh;
+  top: 12vh;
+  right: 15.5vh;
   height: 0;
   text-shadow: .2vh .5vh $black-shadow;
-  @include rotate(-17deg);
   @include user-select(none);
   cursor: default;
+  text-align: center;
 }
 
 .blue_darker {
@@ -594,15 +601,15 @@ a {
 
 .comms {
   position: absolute;
-  width: 104vh;
+  width: 105vh;
   height: auto;
-  font-size: 10vh;
+  font-size: 9.5vh;
   line-height: 7vh;
   color: white;
   text-align: center;
-  top: 28vh;
+  top: 27vh;
   left: 50%;
-  margin-left: -52vh;
+  margin-left: -52.5vh;
 }
 
 #communications {

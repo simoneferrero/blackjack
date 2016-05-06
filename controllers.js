@@ -47,6 +47,7 @@ app.controller('Actions', ['$scope', function($scope) {
     wins: 0,
     losses: 0,
     ties: 0,
+    doubles: 0,
     surrenders: 0,
     blackjacks: 0
   };
@@ -55,6 +56,7 @@ app.controller('Actions', ['$scope', function($scope) {
     console.log(`Wins: ${money.wins}
 Losses: ${money.losses}
 Ties: ${money.ties}
+Doubles: ${money.doubles}
 Surrenders: ${money.surrenders}
 BlackJacks: ${money.blackjacks}`);
   };
@@ -104,6 +106,7 @@ BlackJacks: ${money.blackjacks}`);
           $("#dealer > .card:nth-child(2)")
             .addClass("facedown");
         }, 1);
+        enableButton(buttons[3]);
         enableButton(buttons[5]);
       }
       if (data["reshuffle"] === true) {//changes button name
@@ -144,6 +147,7 @@ BlackJacks: ${money.blackjacks}`);
             .fadeOut(200);
         });
     } else if (button === "Hit") {
+      disableButton(buttons[3]);
       disableButton(buttons[5]);
       dealCard(player);
       if (data["reshuffle"] === true) {
@@ -165,6 +169,7 @@ BlackJacks: ${money.blackjacks}`);
         }
       }
     } else if (button === "Stand") {
+      disableButton(buttons[3]);
       disableButton(buttons[5]);
       uncoverCard();
       dealToDealer();//it will add cards only if tot is not already >=17
@@ -197,6 +202,56 @@ BlackJacks: ${money.blackjacks}`);
       }
       changeStatus(buttons);
       $scope.logGame();
+    } else if (button === "Double") {
+      money.doubles++;
+      money.bet *= 2;
+      dealCard(player);
+      setTimeout(function() {
+        $("#player > .card:nth-child(3)")
+          .addClass("doubledown");
+      }, 1);
+      disableButton(buttons[3]);
+      disableButton(buttons[5]);
+      changeStatus(buttons);
+      $("#communications")
+        .fadeIn(200);
+      if (player.total > 21) {
+        data["communications"] = "Busted! You lose!";
+        uncoverCard();
+        money.reserve -= money.bet;
+        money.losses++;
+      } else {
+        uncoverCard();
+        dealToDealer();
+        if (dealer.total > 21) {
+          data["communications"] = "Dealer busted! You win!";
+          money.reserve += Number(money.bet);
+          money.wins++;
+        } else if (player.total > dealer.total) {
+          data["communications"] = "You win!";
+          money.reserve += Number(money.bet);
+          money.wins++;
+        } else if (player.total < dealer.total) {
+           data["communications"] = "You lose!";
+           money.reserve -= money.bet;
+           money.losses++;
+        } else {
+          data["communications"] = "It's a tie!";
+          money.ties++;
+        }
+      }
+      $scope.emptyReserve();
+      $scope.logGame();
+      if (money.bet > 100) {
+        money.bet /= 2;
+      }
+      if (data["reshuffle"] === true) {
+        buttons[0].name = "Shuffle";
+      }
+      if (money.reserve < 5) {
+        $("#game_lost")//ends game
+          .fadeIn(200);
+      }
     } else if (button === "Surrender") {
       $("#communications")
         .fadeIn(200);
@@ -206,6 +261,7 @@ BlackJacks: ${money.blackjacks}`);
       money.surrenders++;
       $scope.emptyReserve();
       changeStatus(buttons);
+      disableButton(buttons[3]);
       disableButton(buttons[5]);
       $scope.logGame();
       if (money.reserve < 5) {

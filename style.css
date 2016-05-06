@@ -773,7 +773,7 @@ a {
   margin-left: -12vh; }
 
 #player {
-  top: 36vh;
+  top: 37vh;
   margin-left: -12vh; }
 
 .card {
@@ -1200,6 +1200,15 @@ a {
 .facedown {
   z-index: 10 !important; }
 
+.doubledown {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -10% !important;
+  margin-left: 24% !important; }
+
 .total {
   position: absolute;
   left: -12vh;
@@ -1352,14 +1361,14 @@ a {
   transition: 0.2s linear; }
 
 #actions button .inner_circle {
-  padding-top: 2.65vh; }
+  padding-top: 2.9vh; }
 
 #actions button:nth-child(6) .inner_circle {
   padding-top: 3vh; }
 
 #actions button .inner_circle span {
   color: white;
-  font-size: 2.4vh;
+  font-size: 2vh;
   font-weight: 600; }
 
 #actions button:nth-child(6) .inner_circle span {
@@ -1367,24 +1376,21 @@ a {
 
 #actions > form > span {
   position: absolute;
-  font-size: 5vh;
+  font-size: 4vh;
+  line-height: 4vh;
   font-weight: 500;
   color: #d4af37;
-  top: 17.5vh;
-  right: 14vh;
+  top: 12vh;
+  right: 15.5vh;
   height: 0;
   text-shadow: 0.2vh 0.5vh rgba(0, 0, 0, 0.4);
-  -ms-transform: rotate(-17deg);
-  -webkit-transform: rotate(-17deg);
-  -moz-transform: rotate(-17deg);
-  -o-transform: rotate(-17deg);
-  transform: rotate(-17deg);
   -webkit-user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
-  cursor: default; }
+  cursor: default;
+  text-align: center; }
 
 .blue_darker {
   background: #001b86;
@@ -1485,15 +1491,15 @@ a {
 
 .comms {
   position: absolute;
-  width: 104vh;
+  width: 105vh;
   height: auto;
-  font-size: 10vh;
+  font-size: 9.5vh;
   line-height: 7vh;
   color: white;
   text-align: center;
-  top: 28vh;
+  top: 27vh;
   left: 50%;
-  margin-left: -52vh; }
+  margin-left: -52.5vh; }
 
 #communications {
   display: none;

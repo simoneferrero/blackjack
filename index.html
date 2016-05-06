@@ -114,7 +114,7 @@
         </div>
         <div id="actions" ng-controller="Actions">
           <form name="player_bet">
-            <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status || player_bet.$invalid || (money.reserve - money.bet < 0) &#38;&#38; button.name === 'Deal' || data['buttons']" id="{{ button.id }}">
+            <button ng-repeat="button in buttons" ng-click="actions(button.name)" ng-disabled="button.status || player_bet.$invalid &#38;&#38; button.name === 'Deal' || (money.reserve - money.bet < 0) &#38;&#38; button.name === 'Deal' || data['buttons'] || (money.reserve < money.bet) &#38;&#38; button.name === 'Double'" id="{{ button.id }}">
               <div class="chip" ng-class="button.baseColour">
                 <div class="stripes">
                   <div class="stripe light_grey zero_degrees"></div>
@@ -147,7 +147,7 @@
                 </div>
               </div>
             </button>
-            <span>COMING SOON!</span>
+            <span>COMING<br />SOON!</span>
             <div id="bet">
               <span>YOUR BET:<br />
               </span>
