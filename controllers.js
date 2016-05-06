@@ -84,6 +84,7 @@ BlackJacks: ${money.blackjacks}`);
           data["communications"] = "You lose!";
           money.reserve -= money.bet;
           money.losses++;
+          $scope.emptyReserve();
           if (money.reserve < 5) {
             console.log("no more money");
             $("#game_lost")
@@ -155,6 +156,7 @@ BlackJacks: ${money.blackjacks}`);
         uncoverCard();
         money.reserve -= money.bet;//takes money from reserve
         money.losses++;
+        $scope.emptyReserve();
         changeStatus(buttons);
         $scope.logGame();
         if (money.reserve < 5) {
@@ -183,6 +185,7 @@ BlackJacks: ${money.blackjacks}`);
         data["communications"] = "You lose!";
         money.reserve -= money.bet;
         money.losses++;
+        $scope.emptyReserve();
         if (money.reserve < 5) {
           console.log("no more money");
           $("#game_lost")
@@ -201,9 +204,15 @@ BlackJacks: ${money.blackjacks}`);
       uncoverCard();
       money.reserve -= (Number(money.bet) * 0.5);
       money.surrenders++;
+      $scope.emptyReserve();
       changeStatus(buttons);
       disableButton(buttons[5]);
       $scope.logGame();
+      if (money.reserve < 5) {
+        console.log("no more money");
+        $("#game_lost")
+          .fadeIn(200);
+      }
     }
   }
 }]);

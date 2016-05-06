@@ -635,6 +635,7 @@ a {
   background-color: $table;
   border: 1vh solid $light_gold;
   color: white;
+  z-index: 900;
 }
 
 #game_lost div {

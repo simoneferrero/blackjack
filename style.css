@@ -1521,7 +1521,8 @@ a {
   line-height: 9vh;
   background-color: #256339;
   border: 1vh solid #d4af37;
-  color: white; }
+  color: white;
+  z-index: 900; }
 
 #game_lost div {
   position: relative;
